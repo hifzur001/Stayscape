@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Login - Stayscape</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <link href="styles.css" rel="stylesheet" />
+        <style>
+            .admin-login-bg {
+                background: linear-gradient(
+                    135deg,
+                    var(--primary-color),
+                    var(--secondary-color)
+                );
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .login-card {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .admin-icon {
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(
+                    135deg,
+                    var(--primary-color),
+                    var(--secondary-color)
+                );
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 2rem;
+                color: white;
+                font-size: 2rem;
+            }
+            .form-floating .form-control {
+                border-radius: 15px;
+                border: 2px solid #e9ecef;
+                transition: all 0.3s ease;
+            }
+            .form-floating .form-control:focus {
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 0.2rem rgba(104, 27, 152, 0.25);
+            }
+            .btn-admin {
+                background: linear-gradient(
+                    135deg,
+                    var(--primary-color),
+                    var(--secondary-color)
+                );
+                border: none;
+                border-radius: 15px;
+                padding: 15px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+            .btn-admin:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(104, 27, 152, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
+        <!-- Header -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+        <!-- Go to Top Button -->
+        <a href="#" class="floating-btn" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <div class="admin-login-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div
+                            class="login-card p-5"
+                            data-aos="zoom-in"
+                            data-aos-duration="1000"
+                        >
+                            <div class="text-center mb-4">
+                                <div
+                                    class="admin-icon"
+                                    data-aos="flip-up"
+                                    data-aos-delay="200"
+                                >
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h2
+                                    class="fw-bold dd"
+                                    data-aos="fade-up"
+                                    data-aos-delay="300"
+                                >
+                                    Admin Portal
+                                </h2>
+                                <p
+                                    class="text-muted cd"
+                                    data-aos="fade-up"
+                                    data-aos-delay="400"
+                                >
+                                    Secure access to admin dashboard
+                                </p>
+                            </div>
+
+                            <form
+                                id="adminLoginForm"
+                                data-aos="fade-up"
+                                data-aos-delay="500"
+                            >
+                                <div class="form-floating mb-3">
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="adminEmail"
+                                        placeholder="admin@stayscape.com"
+                                        required
+                                    />
+                                    <label for="adminEmail">Admin Email</label>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid admin email.
+                                    </div>
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="adminPassword"
+                                        placeholder="Password"
+                                        required
+                                    />
+                                    <label for="adminPassword">Password</label>
+                                    <div class="invalid-feedback">
+                                        Please enter your password.
+                                    </div>
+                                </div>
+
+                                <div class="form-check mb-4">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="rememberAdmin"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="rememberAdmin"
+                                    >
+                                        Remember me
+                                    </label>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-admin text-white w-100 mb-3"
+                                    id="adminLoginBtn"
+                                >
+                                    <i class="fas fa-sign-in-alt me-2"></i
+                                    >Access Admin Panel
+                                </button>
+                            </form>
+
+                            <div
+                                class="text-center"
+                                data-aos="fade-up"
+                                data-aos-delay="600"
+                            >
+                                <p class="mb-2">
+                                    <small class="text-muted"
+                                        >Demo Credentials:</small
+                                    >
+                                </p>
+                                <p class="mb-1">
+                                    <small
+                                        ><strong>Email:</strong>
+                                        admin@stayscape.com</small
+                                    >
+                                </p>
+                                <p class="mb-3">
+                                    <small
+                                        ><strong>Password:</strong>
+                                        admin123</small
+                                    >
+                                </p>
+                                <a
+                                    href="vendor-login.html"
+                                    class="text-decoration-none"
+                                    >Vendor Login</a
+                                >
+                                |
+                                <a
+                                    href="index.html"
+                                    class="text-decoration-none"
+                                    >Back to Home</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Modal -->
+        <div
+            class="modal fade"
+            id="loadingModal"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+        >
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2 mb-0">Authenticating...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+            });
+
+            function showLoading() {
+                const modal = new bootstrap.Modal(
+                    document.getElementById('loadingModal')
+                );
+                modal.show();
+            }
+
+            function hideLoading() {
+                const loadingModal = document.getElementById('loadingModal');
+                const modal = bootstrap.Modal.getInstance(loadingModal);
+
+                if (modal) {
+                    modal.hide();
+                }
+
+                // Force cleanup
+                setTimeout(() => {
+                    // Remove modal backdrop
+                    const backdrops =
+                        document.querySelectorAll('.modal-backdrop');
+                    backdrops.forEach(backdrop => backdrop.remove());
+
+                    // Reset body styles
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    document.body.style.paddingRight = '';
+                    document.body.removeAttribute('style');
+
+                    // Hide modal directly
+                    loadingModal.style.display = 'none';
+                    loadingModal.classList.remove('show');
+                    loadingModal.setAttribute('aria-hidden', 'true');
+                    loadingModal.removeAttribute('aria-modal');
+                    loadingModal.removeAttribute('role');
+                }, 100);
+            }
+
+            function showAlert(message, type = 'danger') {
+                // Remove any existing alerts
+                const existingAlerts = document.querySelectorAll('.alert');
+                existingAlerts.forEach(alert => alert.remove());
+
+                const alertDiv = document.createElement('div');
+                alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+                alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+                const form = document.getElementById('adminLoginForm');
+                form.parentNode.insertBefore(alertDiv, form);
+
+                setTimeout(() => {
+                    if (alertDiv && alertDiv.parentNode) {
+                        alertDiv.remove();
+                    }
+                }, 5000);
+            }
+
+            document
+                .getElementById('adminLoginForm')
+                .addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const email = document
+                        .getElementById('adminEmail')
+                        .value.trim();
+                    const password =
+                        document.getElementById('adminPassword').value;
+                    const loginBtn = document.getElementById('adminLoginBtn');
+
+                    // Clear previous validation states
+                    document
+                        .querySelectorAll('.is-invalid')
+                        .forEach(el => el.classList.remove('is-invalid'));
+
+                    // Validate inputs
+                    let isValid = true;
+
+                    if (!email) {
+                        document
+                            .getElementById('adminEmail')
+                            .classList.add('is-invalid');
+                        isValid = false;
+                    }
+
+                    if (!password) {
+                        document
+                            .getElementById('adminPassword')
+                            .classList.add('is-invalid');
+                        isValid = false;
+                    }
+
+                    if (!isValid) {
+                        showAlert('Please fill in all required fields.');
+                        return;
+                    }
+
+                    try {
+                        showLoading();
+                        loginBtn.disabled = true;
+
+                        const response = await fetch('admin-auth.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                action: 'admin_login',
+                                email: email,
+                                password: password,
+                            }),
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(
+                                `HTTP error! status: ${response.status}`
+                            );
+                        }
+
+                        const result = await response.json();
+
+                        hideLoading();
+                        loginBtn.disabled = false;
+
+                        if (result.success) {
+                            localStorage.setItem(
+                                'adminUser',
+                                JSON.stringify(result.data.admin)
+                            );
+                            showAlert(
+                                'Login successful! Redirecting...',
+                                'success'
+                            );
+
+                            setTimeout(() => {
+                                window.location.href = 'admin-panel.html';
+                            }, 1500);
+                        } else {
+                            showAlert(
+                                result.message ||
+                                    'Login failed. Please check your credentials.'
+                            );
+                        }
+                    } catch (error) {
+                        hideLoading();
+                        loginBtn.disabled = false;
+                        console.error('Login error:', error);
+                        showAlert(
+                            'Connection error. Please check your internet connection and try again.'
+                        );
+                    }
+                });
+
+            // Auto-focus on email field
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('adminEmail').focus();
+            });
+        </script>
+    </body>
+</html>

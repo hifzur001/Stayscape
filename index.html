@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stayscape - Premium Property Booking</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
+            integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
+            crossorigin="anonymous"
+        />
+        <link href="styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
+        <!-- Header -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+        <!-- Go to Top Button -->
+        <a href="#" class="floating-btn" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <header
+            class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top"
+        >
+            <div class="container">
+                <a
+                    class="navbar-brand d-flex align-items-center"
+                    href="index.html"
+                >
+                    <i class="fas fa-home text-primary me-2 fs-2"></i>
+                    <span class="fw-bold fs-3 text-primary cd">Stayscape</span>
+                </a>
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link fw-semibold active"
+                                href="index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="about.html"
+                                >About</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="contact.html"
+                                >Contact</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="services.html"
+                                >Services</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="explore.html"
+                                >Explore</a
+                            >
+                        </li>
+                    </ul>
+
+                    <div class="d-flex gap-2" id="authButtons">
+                        <a href="login.html" class="btn btn-outline-primary"
+                            >Login</a
+                        >
+                        <a href="signup.html" class="btn btn-primary btnStart"
+                            >Get Started</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section position-relative overflow-hidden">
+            <div class="hero-bg"></div>
+            <div class="container position-relative">
+                <div
+                    class="row align-items-center justify-content-center text-center min-vh-100 py-5"
+                >
+                    <div class="col-lg-12" data-aos="fade-right">
+                        <h1 class="heroHeading dd">
+                            Find Your Perfect
+                            <span id="typewriterText"></span> in Pakistan
+                        </h1>
+
+                        <p
+                            class="lead text-light mb-4 heroSubtext cd text-capitalize"
+                        >
+                            Discover amazing properties across Pakistan's most
+                            beautiful cities. Book your dream accommodation with
+                            ease.
+                        </p>
+                        <div
+                            class="d-flex gap-3 heroButtons justify-content-center"
+                        >
+                            <a
+                                href="#services"
+                                class="btn btn-warning btn-lg exploreBtn cd"
+                                >Explore Now</a
+                            >
+                            <a
+                                href="#about"
+                                class="btn btn-outline-light btn-lg learnBtn cd"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                            Why Choose Stayscape?
+                        </h2>
+                        <p class="lead mb-4 cd">
+                            We're Pakistan's leading property booking platform,
+                            offering premium accommodations across the country.
+                        </p>
+                        <div class="row g-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i
+                                        class="fas fa-shield-alt text-primary fs-2 me-3"
+                                    ></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">
+                                            Verified Properties
+                                        </h6>
+                                        <small class="text-muted cd"
+                                            >All properties are verified</small
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i
+                                        class="fas fa-headset text-primary fs-2 me-3"
+                                    ></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">
+                                            24/7 Support
+                                        </h6>
+                                        <small class="text-muted cd"
+                                            >Round the clock assistance</small
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img
+                            src="https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            class="img-fluid rounded-4"
+                            alt="About Us"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3 similarHaed dd">
+                        Our Services
+                    </h2>
+                    <p class="lead cd">
+                        Discover premium properties across Pakistan's major
+                        cities
+                    </p>
+                </div>
+
+                <!-- City Selection -->
+                <!-- City Selection -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="city-scroll-container mb-4">
+                            <div
+                                class="btn-group flex-nowrap"
+                                role="group"
+                                aria-label="City selection"
+                            >
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary active"
+                                    onclick="selectCity('all')"
+                                >
+                                    All Cities
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('karachi')"
+                                >
+                                    Karachi
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('lahore')"
+                                >
+                                    Lahore
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('islamabad')"
+                                >
+                                    Islamabad
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('rawalpindi')"
+                                >
+                                    Rawalpindi
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('faisalabad')"
+                                >
+                                    Faisalabad
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('multan')"
+                                >
+                                    Multan
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('peshawar')"
+                                >
+                                    Peshawar
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('quetta')"
+                                >
+                                    Quetta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div
+                            class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+                        >
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button
+                                    class="btn btn-outline-primary"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#filterOffcanvas"
+                                >
+                                    <i class="fas fa-filter me-2"></i>Filters
+                                </button>
+                                <select
+                                    class="form-select"
+                                    style="width: 200px"
+                                    id="sortBy"
+                                >
+                                    <option value="price_low">
+                                        Price: Low to High
+                                    </option>
+                                    <option value="price_high">
+                                        Price: High to Low
+                                    </option>
+                                    <option value="rating">Rating</option>
+                                </select>
+                            </div>
+                            <div class="btn-group d-none" role="group">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary active"
+                                    onclick="toggleServicesView('grid')"
+                                >
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="toggleServicesView('list')"
+                                >
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Properties Grid -->
+                <div class="row g-4" id="propertiesContainer">
+                    <!-- Properties will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3 dd similarHaed">
+                        Why Book With Us?
+                    </h2>
+                </div>
+                <div class="row g-4">
+                    <div
+                        class="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="text-center">
+                            <i
+                                class="fas fa-home text-primary display-4 mb-3"
+                            ></i>
+                            <h5 class="cd">Premium Properties</h5>
+                            <p class="cd">
+                                Handpicked properties for the best experience
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="text-center">
+                            <i
+                                class="fas fa-lock text-primary display-4 mb-3"
+                            ></i>
+                            <h5 class="cd">Secure Booking</h5>
+                            <p class="cd">
+                                Your payments and data are always protected
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        <div class="text-center">
+                            <i
+                                class="fas fa-clock text-primary display-4 mb-3"
+                            ></i>
+                            <h5 class="cd">Instant Confirmation</h5>
+                            <p class="cd">Get immediate booking confirmation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 5: Pakistan Tourism Highlights -->
+        <section id="tourism" class="tourism-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2
+                            class="display-5 text-center fw-bold mb-4 dd similarHaed"
+                            data-aos="fade-up"
+                        >
+                            Discover Pakistan's Beauty
+                        </h2>
+                        <p
+                            class="section-subtitle"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                        >
+                            From mountains to beaches, explore diverse
+                            landscapes
+                        </p>
+                    </div>
+                </div>
+                <div class="tourism-grid">
+                    <!-- Card 1 -->
+                    <div class="tourism-card card-north">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg"
+                                alt="Northern Areas"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">
+                                        Northern Areas
+                                    </h3>
+                                    <p class="tourism-subtitle">
+                                        Hunza, Skardu, Gilgit
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-mountain"></i>
+                                            Mountains</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-snowflake"></i>
+                                            Snow</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-camera"></i>
+                                            Photography</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Region
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="tourism-card card-coast">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg"
+                                alt="Coastal Areas"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">
+                                        Coastal Beauty
+                                    </h3>
+                                    <p class="tourism-subtitle">
+                                        Karachi, Gwadar
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-water"></i>
+                                            Beaches</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-ship"></i>
+                                            Ports</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-fish"></i>
+                                            Seafood</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Coast
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="tourism-card card-history">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg"
+                                alt="Historical Sites"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">
+                                        Historical Sites
+                                    </h3>
+                                    <p class="tourism-subtitle">
+                                        Lahore Fort, Mohenjo-daro
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-landmark"></i>
+                                            Heritage</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-university"></i>
+                                            Architecture</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-book"></i>
+                                            History</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore History
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="tourism-card card-desert">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/1679776/pexels-photo-1679776.jpeg"
+                                alt="Desert Adventure"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">
+                                        Desert Adventure
+                                    </h3>
+                                    <p class="tourism-subtitle">
+                                        Thar, Cholistan
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-sun"></i>
+                                            Dunes</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-drum"></i>
+                                            Culture</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-fire"></i>
+                                            Festivals</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Desert
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="tourism-card card-capital">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/3768687/pexels-photo-3768687.jpeg"
+                                alt="Islamabad"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">Capital Charm</h3>
+                                    <p class="tourism-subtitle">Islamabad</p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-city"></i>
+                                            Modern</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-tree"></i>
+                                            Parks</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-mosque"></i>
+                                            Faisal Mosque</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore City
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="tourism-card card-valley">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg"
+                                alt="Swat Valley"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">Swat Valley</h3>
+                                    <p class="tourism-subtitle">
+                                        Greenery & Rivers
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-leaf"></i>
+                                            Nature</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-wind"></i> Fresh
+                                            Air</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-road"></i> Scenic
+                                            Drives</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Valley
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="tourism-card card-culture">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/1407842/pexels-photo-1407842.jpeg"
+                                alt="Cultural Festivals"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">
+                                        Cultural Festivals
+                                    </h3>
+                                    <p class="tourism-subtitle">
+                                        Lahore, Multan
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-music"></i>
+                                            Music</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-drum"></i>
+                                            Dance</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-palette"></i>
+                                            Art</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Culture
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="tourism-card card-wildlife">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/208821/pexels-photo-208821.jpeg"
+                                alt="Wildlife Parks"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">
+                                        Wildlife Parks
+                                    </h3>
+                                    <p class="tourism-subtitle">
+                                        Lal Suhanra, Ayubia
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i class="fas fa-paw"></i>
+                                            Animals</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-binoculars"></i>
+                                            Safari</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-tree"></i>
+                                            Forest</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Nature
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="tourism-card card-hillstations">
+                        <div class="tourism-image">
+                            <img
+                                src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg"
+                                alt="Hill Stations"
+                            />
+                            <div class="tourism-overlay">
+                                <div class="tourism-content">
+                                    <h3 class="tourism-title">Hill Stations</h3>
+                                    <p class="tourism-subtitle">
+                                        Murree, Patriata, Nathia Gali
+                                    </p>
+                                    <div class="tourism-features">
+                                        <span
+                                            ><i
+                                                class="fas fa-umbrella-beach"
+                                            ></i>
+                                            Retreat</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-cloud"></i>
+                                            Fog</span
+                                        >
+                                        <span
+                                            ><i class="fas fa-tree"></i> Pine
+                                            Forests</span
+                                        >
+                                    </div>
+                                    <button class="tourism-btn">
+                                        Explore Hills
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 7: Pakistan Statistics -->
+        <section id="stats" class="stats-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2
+                            class="display-5 text-center fw-bold mb-4 dd similarHaed"
+                            data-aos="fade-up"
+                        >
+                            Stayscape Pakistan by Numbers
+                        </h2>
+                        <p
+                            class="section-subtitle cd"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                        >
+                            Our growing presence across Pakistan
+                        </p>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div
+                        class="stat-card"
+                        data-aos="zoom-in"
+                        data-aos-delay="100"
+                    >
+                        <div class="stat-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">Major Cities</div>
+                        <div class="stat-description">
+                            Karachi, Lahore, Islamabad & more
+                        </div>
+                    </div>
+                    <div
+                        class="stat-card"
+                        data-aos="zoom-in"
+                        data-aos-delay="200"
+                    >
+                        <div class="stat-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="stat-number" data-target="100+">0</div>
+                        <div class="stat-label">Properties</div>
+                        <div class="stat-description">
+                            Verified luxury accommodations
+                        </div>
+                    </div>
+                    <div
+                        class="stat-card"
+                        data-aos="zoom-in"
+                        data-aos-delay="300"
+                    >
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number" data-target="1500+">0</div>
+                        <div class="stat-label">Happy Guests</div>
+                        <div class="stat-description">
+                            Satisfied customers nationwide
+                        </div>
+                    </div>
+                    <div
+                        class="stat-card"
+                        data-aos="zoom-in"
+                        data-aos-delay="400"
+                    >
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-number" data-target="4.8">0</div>
+                        <div class="stat-label">Average Rating</div>
+                        <div class="stat-description">
+                            Excellent guest satisfaction
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 6: Guest Testimonials with Swiper -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title" data-aos="fade-up">
+                            What Our Pakistani Guests Say
+                        </h2>
+                        <p
+                            class="section-subtitle"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                        >
+                            Real experiences from travelers across Pakistan
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div
+                            class="swiper testimonials-swiper"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                        >
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="testimonial-text">
+                                                "Amazing experience in Karachi!
+                                                The DHA villa was exactly as
+                                                described. Perfect location and
+                                                excellent amenities. Stayscape
+                                                made booking so easy!"
+                                            </p>
+                                            <div class="testimonial-author">
+                                                <div class="author-image">
+                                                    <img
+                                                        src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150"
+                                                        alt="Ahmad Khan"
+                                                    />
+                                                </div>
+                                                <div class="author-info">
+                                                    <h4 class="author-name">
+                                                        Ahmad Khan
+                                                    </h4>
+                                                    <p class="author-location">
+                                                        Karachi, Pakistan
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="testimonial-text">
+                                                "Stayed in Lahore's Gulberg
+                                                area. The apartment was modern,
+                                                clean, and perfectly located.
+                                                Great service from the Stayscape
+                                                team!"
+                                            </p>
+                                            <div class="testimonial-author">
+                                                <div class="author-image">
+                                                    <img
+                                                        src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150"
+                                                        alt="Sarah Ali"
+                                                    />
+                                                </div>
+                                                <div class="author-info">
+                                                    <h4 class="author-name">
+                                                        Sarah Ali
+                                                    </h4>
+                                                    <p class="author-location">
+                                                        Lahore, Pakistan
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="testimonial-text">
+                                                "Business trip to Islamabad was
+                                                made comfortable with their F-7
+                                                executive suite. Professional
+                                                service and premium quality
+                                                accommodation."
+                                            </p>
+                                            <div class="testimonial-author">
+                                                <div class="author-image">
+                                                    <img
+                                                        src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150"
+                                                        alt="Hassan Sheikh"
+                                                    />
+                                                </div>
+                                                <div class="author-info">
+                                                    <h4 class="author-name">
+                                                        Hassan Sheikh
+                                                    </h4>
+                                                    <p class="author-location">
+                                                        Islamabad, Pakistan
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="testimonial-text">
+                                                "Family vacation in Rawalpindi
+                                                was perfect. The property had
+                                                everything we needed and the
+                                                kids loved the amenities. Highly
+                                                recommend!"
+                                            </p>
+                                            <div class="testimonial-author">
+                                                <div class="author-image">
+                                                    <img
+                                                        src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150"
+                                                        alt="Fatima Malik"
+                                                    />
+                                                </div>
+                                                <div class="author-info">
+                                                    <h4 class="author-name cd">
+                                                        Fatima Malik
+                                                    </h4>
+                                                    <p class="author-location">
+                                                        Rawalpindi, Pakistan
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 15: Newsletter & Contact -->
+        <section id="newsletter" class="newsletter-section">
+            <div class="container">
+                <h2 class="display-5 text-center fw-bold mb-5 dd similarHaed">
+                    Welcome to Newsletter
+                </h2>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="newsletter-content" data-aos="fade-up">
+                            <div class="newsletter-background">
+                                <img
+                                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                    alt="Pakistan Landscape"
+                                />
+                                <div class="newsletter-overlay"></div>
+                            </div>
+                            <div class="newsletter-inner">
+                                <h2 class="newsletter-title cd">
+                                    Stay Connected with Pakistan's Best
+                                    Properties
+                                </h2>
+                                <p class="newsletter-subtitle">
+                                    Subscribe for exclusive deals, travel tips,
+                                    and updates on new properties across
+                                    Pakistan
+                                </p>
+                                <div
+                                    class="newsletter-form"
+                                    data-aos="fade-up"
+                                    data-aos-delay="200"
+                                >
+                                    <div class="form-group">
+                                        <input
+                                            type="email"
+                                            class="newsletter-input"
+                                            placeholder="Enter your email address"
+                                        />
+                                        <button
+                                            class="newsletter-btn"
+                                            type="submit"
+                                        >
+                                            Subscribe
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="newsletter-benefits">
+                                        <div class="benefit-item">
+                                            <i class="fas fa-percent"></i>
+                                            <span>
+                                                Exclusive Pakistani Deals
+                                            </span>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <i class="fas fa-bell"></i>
+                                            <span> New Property Alerts </span>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <i class="fas fa-map"></i>
+                                            <span> Travel Guides </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="newsletter-stats"
+                                    data-aos="fade-up"
+                                    data-aos-delay="400"
+                                >
+                                    <div class="stat-item">
+                                        <div
+                                            class="stat-number"
+                                            data-target="25000"
+                                        >
+                                            0
+                                        </div>
+                                        <div class="stat-label">
+                                            Newsletter Subscribers
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div
+                                            class="stat-number"
+                                            data-target="50000"
+                                        >
+                                            0
+                                        </div>
+                                        <div class="stat-label">
+                                            Successful Bookings
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div
+                                            class="stat-number"
+                                            data-target="8"
+                                        >
+                                            0
+                                        </div>
+                                        <div class="stat-label">
+                                            Pakistani Cities
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="contact-info"
+                                    data-aos="fade-up"
+                                    data-aos-delay="600"
+                                >
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>+92 300 1234567</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>info@stayscape.pk</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Karachi, Pakistan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <h5 class="fw-bold mb-3">Stayscape</h5>
+                        <p class="mb-4">
+                            Your trusted partner for premium property bookings
+                            across Pakistan. Making travel accommodation simple
+                            and accessible for everyone.
+                        </p>
+                        <div class="social-links d-flex">
+                            <a
+                                href="https://www.facebook.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a
+                                href="https://twitter.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a
+                                href="https://www.instagram.com/"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h6 class="fw-bold mb-3">Quick Links</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a
+                                    href="./index.html"
+                                    class="text-light text-decoration-none"
+                                    >Home</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./about.html"
+                                    class="text-light text-decoration-none"
+                                    >About us</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html"
+                                    class="text-light text-decoration-none"
+                                    >Services</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./contact.html"
+                                    class="text-light text-decoration-none"
+                                    >Contact</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">Popular Cities</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Karachi</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Lahore</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Islamabad</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Rawalpindi</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Faisalabad</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">Contact Info</h6>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope me-2"></i
+                            >info@stayscape.com
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-phone me-2"></i>+92 300 1234567
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i>Karachi,
+                            Pakistan
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-clock me-2"></i>24/7 Support
+                            Available
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+                <div class="text-center">
+                    <p class="mb-0">
+                        &copy; 2025 Stayscape. All rights reserved. | Privacy
+                        Policy | Terms of Service
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Filter Offcanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Filters</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                ></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="mb-4">
+                    <label class="form-label fw-bold">City</label>
+                    <select class="form-select" id="filterCity">
+                        <option value="">All Cities</option>
+                        <option value="karachi">Karachi</option>
+                        <option value="lahore">Lahore</option>
+                        <option value="islamabad">Islamabad</option>
+                        <option value="rawalpindi">Rawalpindi</option>
+                        <option value="faisalabad">Faisalabad</option>
+                        <option value="multan">Multan</option>
+                        <option value="peshawar">Peshawar</option>
+                        <option value="quetta">Quetta</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Property Type</label>
+                    <select class="form-select" id="filterType">
+                        <option value="">All Types</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="villa">Villa</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Price Range</label>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Min"
+                                id="minPrice"
+                            />
+                        </div>
+                        <div class="col-6">
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Max"
+                                id="maxPrice"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Rating</label>
+                    <select class="form-select" id="filterRating">
+                        <option value="">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100" onclick="applyFilters()">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+
+        <!-- Property Modal -->
+        <div class="modal fade" id="propertyModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Property Details</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                        ></button>
+                    </div>
+                    <div class="modal-body" id="modalContent">
+                        <!-- Property details will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <a
+            href="https://wa.me/923001234567"
+            target="_blank"
+            class="whatsapp-btn position-fixed"
+            style="bottom: 100px; right: 20px; z-index: 1000"
+        >
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            // Back to Top Button Logic
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+
+            backToTop?.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            const typewriterText = document.getElementById('typewriterText');
+            const words = ['Stay', 'Villa', 'Apartment', 'House'];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                if (isDeleting) {
+                    charIndex--;
+                } else {
+                    charIndex++;
+                }
+
+                typewriterText.textContent = currentWord.substring(
+                    0,
+                    charIndex
+                );
+
+                let typeSpeed = isDeleting ? 60 : 100;
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 1500;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+            // Add some interactive effects
+            document.addEventListener('mousemove', function (e) {
+                const cursor = document.createElement('div');
+                cursor.style.position = 'fixed';
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursor.style.width = '10px';
+                cursor.style.height = '10px';
+                cursor.style.background = 'rgba(107, 70, 193, 0.3)';
+                cursor.style.borderRadius = '50%';
+                cursor.style.pointerEvents = 'none';
+                cursor.style.zIndex = '9999';
+                cursor.style.animation = 'fadeOut 0.5s ease-out forwards';
+
+                document.body.appendChild(cursor);
+
+                setTimeout(() => {
+                    cursor.remove();
+                }, 500);
+            });
+
+            // Add fadeOut animation
+            const style = document.createElement('style');
+            style.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+        `;
+            document.head.appendChild(style);
+            document.addEventListener('DOMContentLoaded', type);
+
+            // Counter Animation for Statistics
+            function animateCounter(element, target, duration = 2000) {
+                const start = 0;
+                const startTime = performance.now();
+                const isDecimal = target.toString().includes('.');
+
+                function updateCounter(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+
+                    // Use easing function for smooth animation
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+                    const currentCount = isDecimal
+                        ? (start + (target - start) * easeOutQuart).toFixed(1)
+                        : Math.floor(start + (target - start) * easeOutQuart);
+
+                    element.textContent = currentCount;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+            }
+
+            // Enhanced Statistics Observer
+            const statsObserver = new IntersectionObserver(
+                entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const statNumber = entry.target;
+                            const targetValue =
+                                parseFloat(statNumber.dataset.target) ||
+                                parseFloat(statNumber.textContent);
+
+                            // Add pulsing effect during animation
+                            statNumber.style.animation =
+                                'pulse 0.5s ease-in-out';
+
+                            setTimeout(() => {
+                                animateCounter(statNumber, targetValue);
+                            }, 200);
+
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.5,
+                    rootMargin: '0px 0px -50px 0px',
+                }
+            );
+
+            document
+                .querySelectorAll('.stat-number, .impact-number')
+                .forEach(stat => {
+                    statsObserver.observe(stat);
+                });
+        </script>
+    </body>
+</html>

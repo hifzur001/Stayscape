@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Explore - Stayscape</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+        <link rel="stylesheet" href="./css/whom.css" />
+    </head>
+    <body>
+        <!-- Progress Bar -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+        <!-- Go to Top Button -->
+        <a href="#" class="floating-btn" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <header
+            class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top"
+            id="navbar"
+        >
+            <div class="container">
+                <a
+                    class="navbar-brand d-flex align-items-center"
+                    href="index.html"
+                >
+                    <i class="fas fa-home text-primary me-2 fs-2"></i>
+                    <span class="fw-bold fs-3 text-primary cd">Stayscape</span>
+                </a>
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="about.html"
+                                >About</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="contact.html"
+                                >Contact</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="services.html"
+                                >Services</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link fw-semibold active"
+                                href="explore.html"
+                                >Explore</a
+                            >
+                        </li>
+                    </ul>
+
+                    <div class="d-flex gap-2" id="authButtons">
+                        <a href="login.html" class="btn btn-outline-primary"
+                            >Login</a
+                        >
+                        <a href="signup.html" class="btn btn-primary"
+                            >Get Started</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero-section position-relative overflow-hidden">
+            <div class="hero-bg">
+                <div id="heroParticles"></div>
+            </div>
+            <div class="container position-relative">
+                <div
+                    class="row align-items-center justify-content-center text-center min-vh-100 py-5"
+                >
+                    <div class="col-lg-12" data-aos="fade-right">
+                        <h1 class="heroHeading dd">
+                            Perfect For <span id="typewriterText"></span>
+                        </h1>
+
+                        <p
+                            class="lead text-light mb-4 heroSubtext cd text-capitalize"
+                        >
+                            We proudly serve individuals and businesses across
+                            Pakistan — making property discovery simple and
+                            accessible for all.
+                        </p>
+
+                        <div
+                            class="d-flex gap-3 heroButtons justify-content-center"
+                        >
+                            <a
+                                href="#user-types"
+                                class="btn btn-warning btn-lg exploreBtn cd"
+                                >See Who Benefits</a
+                            >
+                            <a
+                                href="#contact"
+                                class="btn btn-outline-light btn-lg learnBtn cd"
+                                >Get in Touch</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section" id="stats">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        Our Impact in Numbers
+                    </h2>
+                    <p class="lead cd">Trusted by thousands across Pakistan</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card scale-in">
+                            <div class="stat-number" data-count="50000">0</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card scale-in">
+                            <div class="stat-number" data-count="15000">0</div>
+                            <div class="stat-label">Properties Listed</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card scale-in">
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-label">Cities Covered</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card scale-in">
+                            <div class="stat-number" data-count="99">0</div>
+                            <div class="stat-label">% Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5" id="users">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        Who We Serve
+                    </h2>
+                    <p class="lead cd">
+                        Stayscape caters to diverse accommodation needs across
+                        Pakistan
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="user-card slide-in-left">
+                            <div class="text-center">
+                                <i class="fas fa-briefcase user-card-icon"></i>
+                                <h5 class="fw-bold mb-3 dd">
+                                    Business Travelers
+                                </h5>
+                                <p class="mb-4">
+                                    Professional accommodations with business
+                                    amenities, high-speed internet, and
+                                    convenient locations near commercial areas.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >High-speed WiFi
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Business Centers
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Meeting Rooms
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Airport Proximity
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="user-card fade-in">
+                            <div class="text-center">
+                                <i class="fas fa-users user-card-icon"></i>
+                                <h5 class="fw-bold mb-3 dd">Families</h5>
+                                <p class="mb-4">
+                                    Spacious family-friendly accommodations with
+                                    multiple bedrooms, kitchens, and
+                                    recreational facilities for memorable stays.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Multiple Bedrooms
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Full Kitchens
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Play Areas
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Safety Features
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="user-card slide-in-right">
+                            <div class="text-center">
+                                <i class="fas fa-heart user-card-icon"></i>
+                                <h5 class="fw-bold mb-3 dd">Couples</h5>
+                                <p class="mb-4">
+                                    Romantic getaways and intimate
+                                    accommodations with privacy, luxury
+                                    amenities, and beautiful settings for
+                                    special moments.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Private Balconies
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Romantic Settings
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Luxury Amenities
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Scenic Views
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="user-card slide-in-left">
+                            <div class="text-center">
+                                <i class="fas fa-user user-card-icon"></i>
+                                <h5 class="fw-bold mb-3 dd">Solo Travelers</h5>
+                                <p class="mb-4">
+                                    Comfortable and secure accommodations for
+                                    individual travelers with essential
+                                    amenities and prime locations.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Secure Access
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Prime Locations
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Essential Amenities
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >24/7 Support
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="user-card fade-in">
+                            <div class="text-center">
+                                <i
+                                    class="fas fa-user-friends user-card-icon"
+                                ></i>
+                                <h5 class="fw-bold mb-3 dd">Groups</h5>
+                                <p class="mb-4">
+                                    Large accommodations perfect for group
+                                    stays, events, and gatherings with shared
+                                    spaces and group amenities.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Large Capacity
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Common Areas
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Event Spaces
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Group Discounts
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="user-card slide-in-right">
+                            <div class="text-center">
+                                <i
+                                    class="fas fa-graduation-cap user-card-icon"
+                                ></i>
+                                <h5 class="fw-bold mb-3 dd">Students</h5>
+                                <p class="mb-4">
+                                    Budget-friendly accommodations for students
+                                    with study-friendly environments and
+                                    affordable long-term options.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Affordable Rates
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Study Areas
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Long-term Options
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Student Discounts
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey-section" id="journey">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        Your Journey With Us
+                    </h2>
+                    <p class="lead cd">
+                        From search to stay, we make it seamless
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="fw-bold text-primary mb-3 cd">
+                                1. Discover
+                            </h4>
+                            <p>
+                                Browse through our extensive collection of
+                                verified properties across Pakistan. Use our
+                                advanced filters to find exactly what you're
+                                looking for.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="fw-bold text-primary mb-3 cd">
+                                2. Compare
+                            </h4>
+                            <p>
+                                Compare prices, amenities, and reviews from real
+                                guests. Our transparent pricing ensures you get
+                                the best value for your money.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="fw-bold text-primary mb-3 cd">
+                                3. Book
+                            </h4>
+                            <p>
+                                Secure your booking with our easy-to-use
+                                platform. Multiple payment options and instant
+                                confirmation make the process hassle-free.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="fw-bold text-primary mb-3 cd">
+                                4. Experience
+                            </h4>
+                            <p>
+                                Enjoy your stay with 24/7 support. Our team is
+                                always ready to assist you for a memorable
+                                experience.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="fw-bold text-primary mb-3 cd">
+                                5. Review
+                            </h4>
+                            <p>
+                                Share your experience and help other travelers.
+                                Your feedback helps us maintain our high
+                                standards of service.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2
+                        class="display-5 fw-bold mb-4 dd similarHaed"
+                        data-aos="flip-up"
+                    >
+                        Why Choose Stayscape?
+                    </h2>
+                    <p class="lead cd">
+                        Discover what makes us the preferred choice for
+                        travelers
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card scale-in">
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            <h5 class="fw-bold mb-3">Verified Properties</h5>
+                            <p>
+                                All properties are thoroughly verified and
+                                inspected to ensure quality and safety
+                                standards.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card scale-in">
+                            <i class="fas fa-headset feature-icon"></i>
+                            <h5 class="fw-bold mb-3">24/7 Support</h5>
+                            <p>
+                                Round-the-clock customer support to assist you
+                                before, during, and after your stay.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card scale-in">
+                            <i class="fas fa-mobile-alt feature-icon"></i>
+                            <h5 class="fw-bold mb-3">Mobile App</h5>
+                            <p>
+                                Book on-the-go with our user-friendly mobile app
+                                available on iOS and Android.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card scale-in">
+                            <i class="fas fa-credit-card feature-icon"></i>
+                            <h5 class="fw-bold mb-3">Secure Payments</h5>
+                            <p>
+                                Multiple secure payment options with SSL
+                                encryption for safe transactions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card scale-in">
+                            <i class="fas fa-undo feature-icon"></i>
+                            <h5 class="fw-bold mb-3">Flexible Cancellation</h5>
+                            <p>
+                                Flexible cancellation policies to accommodate
+                                your changing travel plans.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card scale-in">
+                            <i class="fas fa-star feature-icon"></i>
+                            <h5 class="fw-bold mb-3">Best Price Guarantee</h5>
+                            <p>
+                                We guarantee the best prices. Find it cheaper
+                                elsewhere? We'll match it!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2
+                        class="display-5 fw-bold mb-4 dd similarHaed text-white"
+                    >
+                        Choose Your Plan
+                    </h2>
+                    <p class="lead cd">
+                        Flexible pricing options for every type of traveler
+                    </p>
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card scale-in">
+                            <h4 class="fw-bold mb-3">Basic</h4>
+                            <div class="price">Free</div>
+                            <p class="mb-4">Perfect for occasional travelers</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Basic
+                                    property search
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Standard
+                                    support
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Mobile app
+                                    access
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-lg w-100">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card featured scale-in">
+                            <div class="badge bg-warning text-dark mb-3">
+                                Most Popular
+                            </div>
+                            <h4 class="fw-bold mb-3">Premium</h4>
+                            <div class="price">$9.99<small>/month</small></div>
+                            <p class="mb-4">Ideal for frequent travelers</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Advanced
+                                    search filters
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Priority
+                                    support
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Exclusive
+                                    deals
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>No booking
+                                    fees
+                                </li>
+                            </ul>
+                            <button
+                                class="btn btn-warning btn-lg w-100 text-dark"
+                            >
+                                Choose Premium
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card scale-in">
+                            <h4 class="fw-bold mb-3">Business</h4>
+                            <div class="price">$19.99<small>/month</small></div>
+                            <p class="mb-4">For business travelers and teams</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>All Premium
+                                    features
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Team
+                                    management
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Corporate
+                                    rates
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check me-2"></i>Dedicated
+                                    account manager
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-lg w-100">
+                                Contact Sales
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        Frequently Asked Questions
+                    </h2>
+                    <p class="lead cd">
+                        Find answers to common questions about our services
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="faq-item fade-in">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I book a property?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    Simply browse our properties, select your
+                                    preferred accommodation, choose your dates,
+                                    and complete the secure booking process.
+                                    You'll receive instant confirmation via
+                                    email.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item fade-in">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What is your cancellation policy?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    Our cancellation policy varies by property.
+                                    Most bookings can be cancelled free of
+                                    charge up to 24-48 hours before check-in.
+                                    Check the specific property's cancellation
+                                    terms during booking.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item fade-in">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Are all properties verified?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes, all properties listed on Stayscape
+                                    undergo a thorough verification process
+                                    including physical inspections, document
+                                    verification, and quality assessments to
+                                    ensure they meet our standards.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item fade-in">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Do you offer customer support?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    We provide 24/7 customer support through
+                                    multiple channels including phone, email,
+                                    and live chat. Our support team is always
+                                    ready to assist you with any questions or
+                                    issues.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item fade-in">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What payment methods do you accept?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>
+                                    We accept all major credit cards, debit
+                                    cards, bank transfers, and popular digital
+                                    payment methods. All transactions are
+                                    secured with SSL encryption for your safety.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="text-center fade-in">
+                    <h3
+                        class="display-5 fw-bold mb-4 dd similarHaed text-white"
+                    >
+                        Stay Updated
+                    </h3>
+                    <p class="mb-4">
+                        Subscribe to our newsletter for exclusive deals and
+                        travel tips
+                    </p>
+                    <form class="newsletter-form">
+                        <input
+                            type="email"
+                            class="newsletter-input"
+                            placeholder="Enter your email address"
+                            required
+                        />
+                        <button type="submit" class="newsletter-btn">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <h5 class="fw-bold mb-3">Stayscape</h5>
+                        <p class="mb-4">
+                            Your trusted partner for premium property bookings
+                            across Pakistan. Making travel accommodation simple
+                            and accessible for everyone.
+                        </p>
+                        <div class="social-links d-flex">
+                            <a
+                                href="https://www.facebook.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a
+                                href="https://twitter.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a
+                                href="https://www.instagram.com/"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h6 class="fw-bold mb-3">Quick Links</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a
+                                    href="./index.html"
+                                    class="text-light text-decoration-none"
+                                    >Home</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./about.html"
+                                    class="text-light text-decoration-none"
+                                    >About us</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html"
+                                    class="text-light text-decoration-none"
+                                    >Services</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./contact.html"
+                                    class="text-light text-decoration-none"
+                                    >Contact</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">Popular Cities</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Karachi</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Lahore</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Islamabad</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Rawalpindi</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Faisalabad</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">Contact Info</h6>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope me-2"></i
+                            >info@stayscape.com
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-phone me-2"></i>+92 300 1234567
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i>Karachi,
+                            Pakistan
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-clock me-2"></i>24/7 Support
+                            Available
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+                <div class="text-center">
+                    <p class="mb-0">
+                        &copy; 2025 Stayscape. All rights reserved. | Privacy
+                        Policy | Terms of Service
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+            });
+
+            // Scroll Progress Bar
+            window.addEventListener('scroll', function () {
+                const scrollProgress =
+                    document.getElementById('scrollProgress');
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight =
+                    document.documentElement.scrollHeight -
+                    document.documentElement.clientHeight;
+                const scrollPercent = (scrollTop / scrollHeight) * 100;
+                scrollProgress.style.width = scrollPercent + '%';
+            });
+
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', function () {
+                const navbar = document.getElementById('navbar');
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            // Typewriter Effect
+            const typewriterText = document.getElementById('typewriterText');
+            const words = [
+                'Travelers',
+                'Property Owners',
+                'Students',
+                'Business Professionals',
+                'Families',
+                'Couples',
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                typewriterText.textContent = currentWord.substring(
+                    0,
+                    charIndex
+                );
+                let typeSpeed = isDeleting ? 60 : 120;
+
+                if (isDeleting) {
+                    charIndex--;
+                } else {
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            // Hero Particles
+            function createParticles() {
+                const heroParticles = document.getElementById('heroParticles');
+                const particleCount = 50;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.width = Math.random() * 4 + 2 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.animationDelay = Math.random() * 6 + 's';
+                    particle.style.animationDuration =
+                        Math.random() * 3 + 3 + 's';
+                    heroParticles.appendChild(particle);
+                }
+            }
+
+            // Scroll Animations
+            function handleScrollAnimations() {
+                const elements = document.querySelectorAll(
+                    '.fade-in, .slide-in-left, .slide-in-right, .scale-in'
+                );
+                const windowHeight = window.innerHeight;
+
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    if (elementTop < windowHeight - elementVisible) {
+                        element.classList.add('animate');
+                    }
+                });
+            }
+
+            // Timeline Animation
+            function handleTimelineAnimation() {
+                const timelineItems =
+                    document.querySelectorAll('.timeline-item');
+                const windowHeight = window.innerHeight;
+
+                timelineItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const itemVisible = 200;
+                    if (itemTop < windowHeight - itemVisible) {
+                        item.classList.add('animate');
+                    }
+                });
+            }
+
+            // Counter Animation
+            function animateCounters() {
+                const counters = document.querySelectorAll('[data-count]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const increment = target / 100;
+                    let current = 0;
+
+                    if (counter._counterInterval) {
+                        clearInterval(counter._counterInterval);
+                    }
+
+                    counter._counterInterval = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(counter._counterInterval);
+                        }
+                        counter.textContent =
+                            Math.floor(current).toLocaleString();
+                    }, 20);
+                });
+            }
+
+            // FAQ Toggle
+            function toggleFAQ(element) {
+                const faqItem = element.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                document
+                    .querySelectorAll('.faq-item')
+                    .forEach(item => item.classList.remove('active'));
+                if (!isActive) faqItem.classList.add('active');
+            }
+
+            // Smooth Scroll for Navigation & Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                        this.getAttribute('href')
+                    );
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                        });
+                    }
+                });
+            });
+
+            // Newsletter Form
+            document
+                .querySelector('.newsletter-form')
+                ?.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const email = this.querySelector('.newsletter-input').value;
+                    if (email) {
+                        alert(
+                            "Thank you for subscribing! We'll keep you updated with our latest offers."
+                        );
+                        this.reset();
+                    }
+                });
+
+            // Interactive Cursor Effect
+            document.addEventListener('mousemove', function (e) {
+                const cursor = document.createElement('div');
+                cursor.style.position = 'fixed';
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursor.style.width = '10px';
+                cursor.style.height = '10px';
+                cursor.style.background = 'rgba(107, 70, 193, 0.3)';
+                cursor.style.borderRadius = '50%';
+                cursor.style.pointerEvents = 'none';
+                cursor.style.zIndex = '9999';
+                cursor.style.animation = 'fadeOut 0.5s ease-out forwards';
+                cursor.style.transform = 'translate(-50%, -50%)';
+                document.body.appendChild(cursor);
+                setTimeout(() => cursor.remove(), 500);
+            });
+
+            // Inject fadeOut animation style
+            const style = document.createElement('style');
+            style.textContent = `
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+    `;
+            document.head.appendChild(style);
+
+            // DOMContentLoaded Init
+            document.addEventListener('DOMContentLoaded', function () {
+                type();
+                createParticles();
+
+                // Animate counters on view
+                const statsSection = document.getElementById('stats');
+                if (statsSection) {
+                    const observer = new IntersectionObserver(
+                        entries => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    animateCounters();
+                                    observer.unobserve(entry.target);
+                                }
+                            });
+                        },
+                        { threshold: 0.5 }
+                    );
+                    observer.observe(statsSection);
+                }
+
+                // Back to Top Button Logic
+                const backToTop = document.getElementById('backToTop');
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 300) {
+                        backToTop.style.display = 'flex';
+                    } else {
+                        backToTop.style.display = 'none';
+                    }
+                });
+
+                backToTop?.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+
+                // Custom scroll animation handling
+                window.addEventListener('scroll', function () {
+                    handleScrollAnimations();
+                    handleTimelineAnimation();
+                });
+            });
+        </script>
+    </body>
+</html>

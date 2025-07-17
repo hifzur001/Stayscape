@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Dashboard - Stayscape</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --sidebar-bg: #2c3e50;
+                --sidebar-hover: #34495e;
+                --primary-color: #3498db;
+                --success-color: #27ae60;
+                --warning-color: #f39c12;
+                --danger-color: #e74c3c;
+                --info-color: #17a2b8;
+                --light-bg: #f8f9fa;
+                --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            body {
+                background-color: var(--light-bg);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .admin-sidebar {
+                background-color: var(--sidebar-bg);
+                min-height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            }
+
+            .admin-content {
+                margin-left: 280px;
+                padding: 20px;
+                min-height: 100vh;
+            }
+
+            .sidebar-brand {
+                padding: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+
+            .sidebar-nav {
+                padding: 20px 0;
+            }
+
+            .nav-item {
+                margin: 5px 15px;
+            }
+
+            .nav-link {
+                color: rgba(255, 255, 255, 0.8);
+                padding: 12px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background-color: var(--sidebar-hover);
+                color: white;
+            }
+
+            .nav-link i {
+                width: 20px;
+                margin-right: 10px;
+            }
+
+            .stats-card {
+                background: white;
+                border-radius: 10px;
+                padding: 25px;
+                box-shadow: var(--card-shadow);
+                border: none;
+                height: 100%;
+                margin-bottom: 20px;
+            }
+
+            .stats-icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                color: white;
+                margin-bottom: 15px;
+            }
+
+            .stats-number {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+
+            .stats-label {
+                color: #6c757d;
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .data-table {
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 20px;
+            }
+
+            .table-header {
+                background-color: var(--primary-color);
+                color: white;
+                padding: 20px;
+                margin: 0;
+                font-weight: 600;
+            }
+
+            .table th {
+                border: none;
+                background: #f8f9fa;
+                font-weight: 600;
+                color: #495057;
+                padding: 15px;
+            }
+
+            .table td {
+                border: none;
+                padding: 15px;
+                vertical-align: middle;
+            }
+
+            .table tbody tr {
+                border-bottom: 1px solid #f1f3f4;
+            }
+
+            .table tbody tr:hover {
+                background: #f8f9fa;
+            }
+
+            .status-badge {
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+
+            .status-confirmed {
+                background: #d4edda;
+                color: #155724;
+            }
+            .status-pending {
+                background: #fff3cd;
+                color: #856404;
+            }
+            .status-cancelled {
+                background: #f8d7da;
+                color: #721c24;
+            }
+            .status-completed {
+                background: #d1ecf1;
+                color: #0c5460;
+            }
+
+            .chart-container {
+                background: white;
+                border-radius: 10px;
+                padding: 25px;
+                box-shadow: var(--card-shadow);
+                height: 400px;
+                margin-bottom: 20px;
+            }
+
+            .admin-header {
+                background: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 25px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .user-avatar {
+                width: 40px;
+                height: 40px;
+                background: var(--primary-color);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 600;
+            }
+
+            .content-section {
+                display: none;
+            }
+
+            .content-section.active {
+                display: block;
+            }
+
+            .empty-state {
+                text-align: center;
+                padding: 60px 20px;
+                color: #6c757d;
+            }
+
+            .empty-state i {
+                font-size: 4rem;
+                margin-bottom: 20px;
+                opacity: 0.5;
+            }
+
+            .btn-action {
+                padding: 5px 10px;
+                margin: 2px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                font-size: 12px;
+            }
+
+            .btn-view {
+                background: var(--info-color);
+                color: white;
+            }
+            .btn-edit {
+                background: var(--warning-color);
+                color: white;
+            }
+            .btn-delete {
+                background: var(--danger-color);
+                color: white;
+            }
+            .btn-approve {
+                background: var(--success-color);
+                color: white;
+            }
+
+            @media (max-width: 768px) {
+                .admin-sidebar {
+                    transform: translateX(-100%);
+                }
+
+                .admin-content {
+                    margin-left: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Sidebar -->
+        <div class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-brand">
+                <h4 class="mb-0">
+                    <i class="fas fa-shield-alt me-2"></i>
+                    Admin Panel
+                </h4>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a
+                        href="#"
+                        class="nav-link active"
+                        onclick="showSection('dashboard')"
+                    >
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        onclick="showSection('bookings')"
+                    >
+                        <i class="fas fa-calendar-check"></i>
+                        Bookings
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('users')">
+                        <i class="fas fa-users"></i>
+                        Users
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        onclick="showSection('properties')"
+                    >
+                        <i class="fas fa-building"></i>
+                        Properties
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        onclick="showSection('vendors')"
+                    >
+                        <i class="fas fa-store"></i>
+                        Vendors
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        onclick="showSection('earnings')"
+                    >
+                        <i class="fas fa-chart-line"></i>
+                        Earnings
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        onclick="showSection('messages')"
+                    >
+                        <i class="fas fa-envelope"></i>
+                        Messages
+                    </a>
+                </div>
+                <div class="nav-item mt-4">
+                    <a href="#" class="nav-link" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <!-- Header -->
+            <div class="admin-header">
+                <h2 class="mb-0" id="pageTitle">Dashboard</h2>
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div>
+                        <div class="fw-bold" id="userName">Admin User</div>
+                        <small class="text-muted">Administrator</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section active">
+                <!-- Stats Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div
+                                class="stats-icon"
+                                style="background-color: var(--success-color)"
+                            >
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div
+                                class="stats-number text-success"
+                                id="totalBookings"
+                            >
+                                0
+                            </div>
+                            <div class="stats-label">Total Bookings</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div
+                                class="stats-icon"
+                                style="background-color: var(--primary-color)"
+                            >
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div
+                                class="stats-number text-primary"
+                                id="totalProperties"
+                            >
+                                0
+                            </div>
+                            <div class="stats-label">Properties</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div
+                                class="stats-icon"
+                                style="background-color: var(--warning-color)"
+                            >
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div
+                                class="stats-number text-warning"
+                                id="totalUsers"
+                            >
+                                0
+                            </div>
+                            <div class="stats-label">Active Users</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div
+                                class="stats-icon"
+                                style="background-color: var(--danger-color)"
+                            >
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div
+                                class="stats-number text-danger"
+                                id="totalRevenue"
+                            >
+                                PKR 0
+                            </div>
+                            <div class="stats-label">Total Revenue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="chart-container">
+                            <h5 class="mb-3">Monthly Bookings</h5>
+                            <canvas id="bookingsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-container">
+                            <h5 class="mb-3">Booking Status</h5>
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Bookings -->
+                <div class="data-table">
+                    <h5 class="table-header">Recent Bookings</h5>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Guest</th>
+                                    <th>Property</th>
+                                    <th>Check-in</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentBookingsTable">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings Section -->
+            <div id="bookings" class="content-section">
+                <div class="data-table">
+                    <h5 class="table-header">All Bookings</h5>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Guest Details</th>
+                                    <th>Property</th>
+                                    <th>Dates</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allBookingsTable">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div id="users" class="content-section">
+                <div class="data-table">
+                    <h5 class="table-header">Registered Users</h5>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Bookings</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTable">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Section -->
+            <div id="properties" class="content-section">
+                <div class="data-table">
+                    <h5 class="table-header">Properties</h5>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Property ID</th>
+                                    <th>Title</th>
+                                    <th>Location</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Rating</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="propertiesTable">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vendors Section -->
+            <div id="vendors" class="content-section">
+                <div class="data-table">
+                    <h5 class="table-header">Vendors</h5>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Vendor ID</th>
+                                    <th>Name</th>
+                                    <th>Company</th>
+                                    <th>Email</th>
+                                    <th>City</th>
+                                    <th>Properties</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vendorsTable">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings Section -->
+            <div id="earnings" class="content-section">
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="chart-container">
+                            <h5 class="mb-3">Monthly Revenue</h5>
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-container">
+                            <h5 class="mb-3">Revenue by City</h5>
+                            <canvas id="cityRevenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Section -->
+            <div id="messages" class="content-section">
+                <div class="data-table">
+                    <h5 class="table-header">Contact Messages</h5>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
+                                    <th>Message</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messagesTable">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            let currentAdmin = null;
+            let charts = {};
+
+            // Initialize admin panel
+            document.addEventListener('DOMContentLoaded', function () {
+                checkAdminAuth();
+                loadDashboardData();
+            });
+
+            function checkAdminAuth() {
+                const adminData = localStorage.getItem('adminUser');
+                if (!adminData) {
+                    window.location.href = 'admin-login.html';
+                    return;
+                }
+
+                currentAdmin = JSON.parse(adminData);
+                document.getElementById('userName').textContent =
+                    currentAdmin.name;
+                document.getElementById('userAvatar').textContent =
+                    currentAdmin.name.charAt(0);
+            }
+
+            async function loadDashboardData() {
+                try {
+                    // Load dashboard stats
+                    const statsResponse = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'get_dashboard_stats' }),
+                    });
+
+                    const statsResult = await statsResponse.json();
+                    if (statsResult.success) {
+                        updateDashboardStats(statsResult.data);
+                        updateCharts(statsResult.data);
+                    }
+
+                    // Load recent bookings
+                    const bookingsResponse = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'get_recent_bookings',
+                            limit: 10,
+                        }),
+                    });
+
+                    const bookingsResult = await bookingsResponse.json();
+                    if (bookingsResult.success) {
+                        updateRecentBookingsTable(bookingsResult.data.bookings);
+                    }
+                } catch (error) {
+                    console.error('Error loading dashboard data:', error);
+                    showErrorMessage('Failed to load dashboard data');
+                }
+            }
+
+            function updateDashboardStats(data) {
+                document.getElementById('totalBookings').textContent =
+                    data.total_bookings || 0;
+                document.getElementById('totalProperties').textContent =
+                    data.total_properties || 0;
+                document.getElementById('totalUsers').textContent =
+                    data.total_users || 0;
+                document.getElementById('totalRevenue').textContent =
+                    'PKR ' +
+                    (data.total_revenue
+                        ? parseInt(data.total_revenue).toLocaleString()
+                        : '0');
+            }
+
+            function updateCharts(data) {
+                // Monthly bookings chart
+                const bookingsCtx = document.getElementById('bookingsChart');
+                if (bookingsCtx) {
+                    if (charts.bookings) charts.bookings.destroy();
+
+                    const monthlyData = new Array(12).fill(0);
+                    if (data.monthly_bookings) {
+                        data.monthly_bookings.forEach(item => {
+                            monthlyData[item.month - 1] = item.count;
+                        });
+                    }
+
+                    charts.bookings = new Chart(bookingsCtx, {
+                        type: 'line',
+                        data: {
+                            labels: [
+                                'Jan',
+                                'Feb',
+                                'Mar',
+                                'Apr',
+                                'May',
+                                'Jun',
+                                'Jul',
+                                'Aug',
+                                'Sep',
+                                'Oct',
+                                'Nov',
+                                'Dec',
+                            ],
+                            datasets: [
+                                {
+                                    label: 'Bookings',
+                                    data: monthlyData,
+                                    borderColor: '#3498db',
+                                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                                    tension: 0.4,
+                                    fill: true,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                y: { beginAtZero: true },
+                            },
+                        },
+                    });
+                }
+
+                // Status distribution chart
+                const statusCtx = document.getElementById('statusChart');
+                if (statusCtx) {
+                    if (charts.status) charts.status.destroy();
+
+                    const statusData = {
+                        confirmed: 0,
+                        pending: 0,
+                        cancelled: 0,
+                        completed: 0,
+                    };
+                    if (data.status_distribution) {
+                        data.status_distribution.forEach(item => {
+                            statusData[item.booking_status] = item.count;
+                        });
+                    }
+
+                    charts.status = new Chart(statusCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: [
+                                'Confirmed',
+                                'Pending',
+                                'Cancelled',
+                                'Completed',
+                            ],
+                            datasets: [
+                                {
+                                    data: [
+                                        statusData.confirmed,
+                                        statusData.pending,
+                                        statusData.cancelled,
+                                        statusData.completed,
+                                    ],
+                                    backgroundColor: [
+                                        '#27ae60',
+                                        '#f39c12',
+                                        '#e74c3c',
+                                        '#17a2b8',
+                                    ],
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { position: 'bottom' } },
+                        },
+                    });
+                }
+            }
+
+            function updateRecentBookingsTable(bookings) {
+                const tbody = document.getElementById('recentBookingsTable');
+
+                if (!bookings || bookings.length === 0) {
+                    tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <div class="empty-state">
+                                <i class="fas fa-calendar-times"></i>
+                                <h6>No bookings found</h6>
+                                <p>No recent bookings to display</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    return;
+                }
+
+                tbody.innerHTML = bookings
+                    .map(
+                        booking => `
+                <tr>
+                    <td><strong>${booking.booking_id}</strong></td>
+                    <td>
+                        <div><strong>${booking.guest_name}</strong></div>
+                        <small class="text-muted">${booking.guest_email}</small>
+                    </td>
+                    <td>
+                        <div>${booking.property_title}</div>
+                        <small class="text-muted">${
+                            booking.property_location
+                        }</small>
+                    </td>
+                    <td>${new Date(
+                        booking.checkin_date
+                    ).toLocaleDateString()}</td>
+                    <td><strong>PKR ${parseInt(
+                        booking.total_amount
+                    ).toLocaleString()}</strong></td>
+                    <td><span class="status-badge status-${
+                        booking.booking_status
+                    }">${
+                            booking.booking_status.charAt(0).toUpperCase() +
+                            booking.booking_status.slice(1)
+                        }</span></td>
+                </tr>
+            `
+                    )
+                    .join('');
+            }
+
+            async function loadAllBookings() {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'get_all_bookings',
+                            page: 1,
+                            limit: 100,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updateAllBookingsTable(result.data.bookings);
+                    }
+                } catch (error) {
+                    console.error('Error loading bookings:', error);
+                    showErrorMessage('Failed to load bookings');
+                }
+            }
+
+            function updateAllBookingsTable(bookings) {
+                const tbody = document.getElementById('allBookingsTable');
+
+                if (!bookings || bookings.length === 0) {
+                    tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div class="empty-state">
+                                <i class="fas fa-calendar-times"></i>
+                                <h6>No bookings found</h6>
+                                <p>No bookings to display</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    return;
+                }
+
+                tbody.innerHTML = bookings
+                    .map(
+                        booking => `
+                <tr>
+                    <td><strong>${booking.booking_id}</strong></td>
+                    <td>
+                        <div><strong>${booking.guest_name}</strong></div>
+                        <div><small>${booking.guest_email}</small></div>
+                        <div><small>${booking.guest_phone}</small></div>
+                    </td>
+                    <td>
+                        <div>${booking.property_title}</div>
+                        <small class="text-muted">${
+                            booking.property_location
+                        }</small>
+                    </td>
+                    <td>
+                        <div><strong>In:</strong> ${new Date(
+                            booking.checkin_date
+                        ).toLocaleDateString()}</div>
+                        <div><strong>Out:</strong> ${new Date(
+                            booking.checkout_date
+                        ).toLocaleDateString()}</div>
+                        <div><small>${booking.guests} guests</small></div>
+                    </td>
+                    <td><strong>PKR ${parseInt(
+                        booking.total_amount
+                    ).toLocaleString()}</strong></td>
+                    <td><span class="status-badge status-${
+                        booking.booking_status
+                    }">${
+                            booking.booking_status.charAt(0).toUpperCase() +
+                            booking.booking_status.slice(1)
+                        }</span></td>
+                    <td>
+                        <button class="btn-action btn-view" onclick="viewBooking('${
+                            booking.booking_id
+                        }')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-action btn-approve" onclick="updateBookingStatus('${
+                            booking.booking_id
+                        }', 'confirmed')">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-action btn-delete" onclick="updateBookingStatus('${
+                            booking.booking_id
+                        }', 'cancelled')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </td>
+                </tr>
+            `
+                    )
+                    .join('');
+            }
+
+            async function loadUsers() {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'get_all_users',
+                            page: 1,
+                            limit: 100,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updateUsersTable(result.data.users);
+                    }
+                } catch (error) {
+                    console.error('Error loading users:', error);
+                    showErrorMessage('Failed to load users');
+                }
+            }
+
+            function updateUsersTable(users) {
+                const tbody = document.getElementById('usersTable');
+
+                if (!users || users.length === 0) {
+                    tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div class="empty-state">
+                                <i class="fas fa-users"></i>
+                                <h6>No users found</h6>
+                                <p>No registered users to display</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    return;
+                }
+
+                tbody.innerHTML = users
+                    .map(
+                        user => `
+                <tr>
+                    <td><strong>${user.user_id}</strong></td>
+                    <td>${user.first_name} ${user.last_name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td><span class="badge bg-primary">${
+                        user.total_bookings || 0
+                    }</span></td>
+                    <td><span class="status-badge ${
+                        user.is_active ? 'status-confirmed' : 'status-cancelled'
+                    }">${user.is_active ? 'Active' : 'Inactive'}</span></td>
+                    <td>
+                        <button class="btn-action btn-view" onclick="viewUser('${
+                            user.user_id
+                        }')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-action ${
+                            user.is_active ? 'btn-edit' : 'btn-approve'
+                        }" onclick="toggleUserStatus('${user.user_id}')">
+                            <i class="fas fa-${
+                                user.is_active ? 'pause' : 'play'
+                            }"></i>
+                        </button>
+                    </td>
+                </tr>
+            `
+                    )
+                    .join('');
+            }
+
+            async function loadProperties() {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'get_all_properties',
+                            page: 1,
+                            limit: 100,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updatePropertiesTable(result.data.properties);
+                    }
+                } catch (error) {
+                    console.error('Error loading properties:', error);
+                    showErrorMessage('Failed to load properties');
+                }
+            }
+
+            function updatePropertiesTable(properties) {
+                const tbody = document.getElementById('propertiesTable');
+
+                if (!properties || properties.length === 0) {
+                    tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            <div class="empty-state">
+                                <i class="fas fa-building"></i>
+                                <h6>No properties found</h6>
+                                <p>No properties to display</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    return;
+                }
+
+                tbody.innerHTML = properties
+                    .map(
+                        property => `
+                <tr>
+                    <td><strong>${
+                        property.property_id || property.id
+                    }</strong></td>
+                    <td>${property.title}</td>
+                    <td>${property.location}</td>
+                    <td><span class="badge bg-info">${property.type}</span></td>
+                    <td><strong>PKR ${parseInt(
+                        property.price
+                    ).toLocaleString()}</strong></td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-star text-warning me-1"></i>
+                            ${property.rating}
+                        </div>
+                    </td>
+                    <td><span class="status-badge ${
+                        property.is_active
+                            ? 'status-confirmed'
+                            : 'status-cancelled'
+                    }">${property.is_active ? 'Active' : 'Inactive'}</span></td>
+                    <td>
+                        <button class="btn-action btn-view" onclick="viewProperty(${
+                            property.id
+                        })">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-action ${
+                            property.is_active ? 'btn-edit' : 'btn-approve'
+                        }" onclick="togglePropertyStatus(${property.id})">
+                            <i class="fas fa-${
+                                property.is_active ? 'pause' : 'play'
+                            }"></i>
+                        </button>
+                    </td>
+                </tr>
+            `
+                    )
+                    .join('');
+            }
+
+            async function loadVendors() {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'get_all_vendors',
+                            page: 1,
+                            limit: 100,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updateVendorsTable(result.data.vendors);
+                    }
+                } catch (error) {
+                    console.error('Error loading vendors:', error);
+                    showErrorMessage('Failed to load vendors');
+                }
+            }
+
+            function updateVendorsTable(vendors) {
+                const tbody = document.getElementById('vendorsTable');
+
+                if (!vendors || vendors.length === 0) {
+                    tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            <div class="empty-state">
+                                <i class="fas fa-store"></i>
+                                <h6>No vendors found</h6>
+                                <p>No vendors to display</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    return;
+                }
+
+                tbody.innerHTML = vendors
+                    .map(
+                        vendor => `
+                <tr>
+                    <td><strong>${vendor.vendor_id}</strong></td>
+                    <td>${vendor.name}</td>
+                    <td>${vendor.company_name}</td>
+                    <td>${vendor.email}</td>
+                    <td><span class="badge bg-secondary">${
+                        vendor.city
+                    }</span></td>
+                    <td><span class="badge bg-primary">${
+                        vendor.total_properties || 0
+                    }</span></td>
+                    <td><span class="status-badge ${
+                        vendor.is_active
+                            ? 'status-confirmed'
+                            : 'status-cancelled'
+                    }">${vendor.is_active ? 'Active' : 'Inactive'}</span></td>
+                    <td>
+                        <button class="btn-action btn-view" onclick="viewVendor('${
+                            vendor.vendor_id
+                        }')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-action ${
+                            vendor.is_active ? 'btn-edit' : 'btn-approve'
+                        }" onclick="toggleVendorStatus('${vendor.vendor_id}')">
+                            <i class="fas fa-${
+                                vendor.is_active ? 'pause' : 'play'
+                            }"></i>
+                        </button>
+                    </td>
+                </tr>
+            `
+                    )
+                    .join('');
+            }
+
+            async function loadMessages() {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'get_contact_messages',
+                            page: 1,
+                            limit: 100,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updateMessagesTable(result.data.messages);
+                    }
+                } catch (error) {
+                    console.error('Error loading messages:', error);
+                    showErrorMessage('Failed to load messages');
+                }
+            }
+
+            function updateMessagesTable(messages) {
+                const tbody = document.getElementById('messagesTable');
+
+                if (!messages || messages.length === 0) {
+                    tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div class="empty-state">
+                                <i class="fas fa-envelope"></i>
+                                <h6>No messages found</h6>
+                                <p>No contact messages to display</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    return;
+                }
+
+                tbody.innerHTML = messages
+                    .map(
+                        message => `
+                <tr>
+                    <td>${message.first_name} ${message.last_name}</td>
+                    <td>${message.email}</td>
+                    <td>${message.subject}</td>
+                    <td>
+                        <div style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
+                            ${message.message.substring(0, 100)}${
+                            message.message.length > 100 ? '...' : ''
+                        }
+                        </div>
+                    </td>
+                    <td>${new Date(
+                        message.created_at
+                    ).toLocaleDateString()}</td>
+                    <td><span class="status-badge ${
+                        message.is_read ? 'status-completed' : 'status-pending'
+                    }">${message.is_read ? 'Read' : 'Unread'}</span></td>
+                    <td>
+                        <button class="btn-action btn-view" onclick="viewMessage(${
+                            message.id
+                        })">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        ${
+                            !message.is_read
+                                ? `<button class="btn-action btn-approve" onclick="markMessageRead(${message.id})"><i class="fas fa-check"></i></button>`
+                                : ''
+                        }
+                    </td>
+                </tr>
+            `
+                    )
+                    .join('');
+            }
+
+            async function loadEarningsData() {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'get_earnings_data' }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updateEarningsCharts(result.data);
+                    }
+                } catch (error) {
+                    console.error('Error loading earnings data:', error);
+                    showErrorMessage('Failed to load earnings data');
+                }
+            }
+
+            function updateEarningsCharts(data) {
+                // Revenue chart
+                const revenueCtx = document.getElementById('revenueChart');
+                if (revenueCtx) {
+                    if (charts.revenue) charts.revenue.destroy();
+
+                    const monthlyRevenue = new Array(12).fill(0);
+                    if (data.monthly_earnings) {
+                        data.monthly_earnings.forEach(item => {
+                            monthlyRevenue[item.month - 1] = item.total;
+                        });
+                    }
+
+                    charts.revenue = new Chart(revenueCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: [
+                                'Jan',
+                                'Feb',
+                                'Mar',
+                                'Apr',
+                                'May',
+                                'Jun',
+                                'Jul',
+                                'Aug',
+                                'Sep',
+                                'Oct',
+                                'Nov',
+                                'Dec',
+                            ],
+                            datasets: [
+                                {
+                                    label: 'Revenue (PKR)',
+                                    data: monthlyRevenue,
+                                    backgroundColor: '#3498db',
+                                    borderColor: '#2980b9',
+                                    borderWidth: 1,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                y: { beginAtZero: true },
+                            },
+                        },
+                    });
+                }
+
+                // City revenue chart
+                const cityCtx = document.getElementById('cityRevenueChart');
+                if (cityCtx && data.earnings_by_city) {
+                    if (charts.cityRevenue) charts.cityRevenue.destroy();
+
+                    charts.cityRevenue = new Chart(cityCtx, {
+                        type: 'pie',
+                        data: {
+                            labels: data.earnings_by_city.map(
+                                item =>
+                                    item.city.charAt(0).toUpperCase() +
+                                    item.city.slice(1)
+                            ),
+                            datasets: [
+                                {
+                                    data: data.earnings_by_city.map(
+                                        item => item.total
+                                    ),
+                                    backgroundColor: [
+                                        '#3498db',
+                                        '#27ae60',
+                                        '#f39c12',
+                                        '#e74c3c',
+                                        '#9b59b6',
+                                    ],
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { position: 'bottom' } },
+                        },
+                    });
+                }
+            }
+
+            function showSection(sectionName) {
+                // Hide all sections
+                document
+                    .querySelectorAll('.content-section')
+                    .forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                // Remove active class from all nav links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Show selected section
+                document.getElementById(sectionName).classList.add('active');
+
+                // Add active class to clicked nav link
+                event.target.classList.add('active');
+
+                // Update page title
+                const titles = {
+                    dashboard: 'Dashboard',
+                    bookings: 'Bookings Management',
+                    users: 'Users Management',
+                    properties: 'Properties Management',
+                    vendors: 'Vendors Management',
+                    earnings: 'Earnings & Analytics',
+                    messages: 'Contact Messages',
+                };
+
+                document.getElementById('pageTitle').textContent =
+                    titles[sectionName] || 'Dashboard';
+
+                // Load section-specific data
+                switch (sectionName) {
+                    case 'bookings':
+                        loadAllBookings();
+                        break;
+                    case 'users':
+                        loadUsers();
+                        break;
+                    case 'properties':
+                        loadProperties();
+                        break;
+                    case 'vendors':
+                        loadVendors();
+                        break;
+                    case 'messages':
+                        loadMessages();
+                        break;
+                    case 'earnings':
+                        loadEarningsData();
+                        break;
+                }
+            }
+
+            function showErrorMessage(message) {
+                console.error(message);
+                // You can implement a toast notification here
+            }
+
+            function logout() {
+                if (confirm('Are you sure you want to logout?')) {
+                    localStorage.removeItem('adminUser');
+                    window.location.href = 'admin-login.html';
+                }
+            }
+
+            // Placeholder functions for actions
+            function viewBooking(bookingId) {
+                alert('View booking: ' + bookingId);
+            }
+            async function updateBookingStatus(bookingId, status) {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'update_booking_status',
+                            booking_id: bookingId,
+                            status: status,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        loadAllBookings(); // Refresh the table
+                        alert('Booking status updated successfully');
+                    } else {
+                        alert(
+                            'Failed to update booking status: ' + result.message
+                        );
+                    }
+                } catch (error) {
+                    alert('Error updating booking status');
+                }
+            }
+            function viewUser(userId) {
+                alert('View user: ' + userId);
+            }
+            async function toggleUserStatus(userId) {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'toggle_user_status',
+                            user_id: userId,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        loadUsers(); // Refresh the table
+                        alert('User status updated successfully');
+                    } else {
+                        alert(
+                            'Failed to update user status: ' + result.message
+                        );
+                    }
+                } catch (error) {
+                    alert('Error updating user status');
+                }
+            }
+            function viewProperty(propertyId) {
+                alert('View property: ' + propertyId);
+            }
+            function togglePropertyStatus(propertyId) {
+                alert('Toggle property status: ' + propertyId);
+            }
+            function viewVendor(vendorId) {
+                alert('View vendor: ' + vendorId);
+            }
+            function toggleVendorStatus(vendorId) {
+                alert('Toggle vendor status: ' + vendorId);
+            }
+            function viewMessage(messageId) {
+                alert('View message: ' + messageId);
+            }
+            async function markMessageRead(messageId) {
+                try {
+                    const response = await fetch('admin-api.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'mark_message_read',
+                            message_id: messageId,
+                        }),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        loadMessages(); // Refresh the table
+                        alert('Message marked as read');
+                    } else {
+                        alert(
+                            'Failed to mark message as read: ' + result.message
+                        );
+                    }
+                } catch (error) {
+                    alert('Error marking message as read');
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Services - Stayscape</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <link href="styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/services.css" />
+    </head>
+    <body>
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
+        <!-- Header -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+        <!-- Go to Top Button -->
+        <a href="#" class="floating-btn" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <!-- Header -->
+        <header
+            class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top"
+        >
+            <div class="container">
+                <a
+                    class="navbar-brand d-flex align-items-center"
+                    href="index.html"
+                >
+                    <i class="fas fa-home text-primary me-2 fs-2"></i>
+                    <span class="fw-bold fs-3 text-primary cd">Stayscape</span>
+                </a>
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="about.html"
+                                >About</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="contact.html"
+                                >Contact</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link fw-semibold active"
+                                href="services.html"
+                                >Services</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="explore.html"
+                                >Explore</a
+                            >
+                        </li>
+                    </ul>
+
+                    <div class="d-flex gap-2" id="authButtons">
+                        <a href="login.html" class="btn btn-outline-primary"
+                            >Login</a
+                        >
+                        <a href="signup.html" class="btn btn-primary"
+                            >Get Started</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section position-relative overflow-hidden">
+            <div class="hero-bg"></div>
+            <div class="container position-relative">
+                <div
+                    class="row align-items-center justify-content-center text-center min-vh-100 py-5"
+                >
+                    <div class="col-lg-12" data-aos="fade-right">
+                        <h1 class="heroHeading dd">
+                            Explore Our
+                            <span id="typewriterText"></span> Services
+                        </h1>
+
+                        <p
+                            class="lead text-light mb-4 heroSubtext cd text-capitalize"
+                        >
+                            From verified listings to expert guidance, we offer
+                            everything you need for a seamless property
+                            experience in Pakistan.
+                        </p>
+
+                        <div
+                            class="d-flex gap-3 heroButtons justify-content-center"
+                        >
+                            <a
+                                href="#service-details"
+                                class="btn btn-warning btn-lg exploreBtn cd"
+                                >View Services</a
+                            >
+                            <a
+                                href="#contact"
+                                class="btn btn-outline-light btn-lg learnBtn cd"
+                                >Talk to Us</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Selection & Property Search -->
+        <section class="py-5 bg-light" id="services">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        Find Properties by City
+                    </h2>
+                    <p class="lead cd">
+                        Select your preferred city and discover amazing
+                        accommodations
+                    </p>
+                </div>
+
+                <!-- City Selection -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="city-scroll-container mb-4">
+                            <div
+                                class="btn-group flex-nowrap"
+                                role="group"
+                                aria-label="City selection"
+                            >
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary active"
+                                    onclick="selectCity('all')"
+                                >
+                                    All Cities
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('karachi')"
+                                >
+                                    Karachi
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('lahore')"
+                                >
+                                    Lahore
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('islamabad')"
+                                >
+                                    Islamabad
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('rawalpindi')"
+                                >
+                                    Rawalpindi
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('faisalabad')"
+                                >
+                                    Faisalabad
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('multan')"
+                                >
+                                    Multan
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('peshawar')"
+                                >
+                                    Peshawar
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="selectCity('quetta')"
+                                >
+                                    Quetta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Form -->
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow propertiesCard">
+                            <div class="card-body p-4">
+                                <h5 class="mb-3">Search Properties</h5>
+                                <form class="row g-3" id="servicesSearchForm">
+                                    <div class="col-md-6">
+                                        <label class="form-label">City</label>
+                                        <select
+                                            class="form-select"
+                                            id="servicesCityFilter"
+                                        >
+                                            <option value="">
+                                                Select City
+                                            </option>
+                                            <option value="karachi">
+                                                Karachi
+                                            </option>
+                                            <option value="lahore">
+                                                Lahore
+                                            </option>
+                                            <option value="islamabad">
+                                                Islamabad
+                                            </option>
+                                            <option value="rawalpindi">
+                                                Rawalpindi
+                                            </option>
+                                            <option value="faisalabad">
+                                                Faisalabad
+                                            </option>
+                                            <option value="multan">
+                                                Multan
+                                            </option>
+                                            <option value="peshawar">
+                                                Peshawar
+                                            </option>
+                                            <option value="quetta">
+                                                Quetta
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Property Type</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            id="servicesTypeFilter"
+                                        >
+                                            <option value="">
+                                                Property Type
+                                            </option>
+                                            <option value="apartment">
+                                                Apartment
+                                            </option>
+                                            <option value="house">House</option>
+                                            <option value="villa">Villa</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Check-in Date</label
+                                        >
+                                        <input
+                                            type="date"
+                                            class="form-control"
+                                            id="servicesCheckin"
+                                        />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Check-out Date</label
+                                        >
+                                        <input
+                                            type="date"
+                                            class="form-control"
+                                            id="servicesCheckout"
+                                        />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guests</label>
+                                        <select
+                                            class="form-select"
+                                            id="servicesGuests"
+                                        >
+                                            <option value="1">1 Guest</option>
+                                            <option value="2">2 Guests</option>
+                                            <option value="3">3 Guests</option>
+                                            <option value="4">4 Guests</option>
+                                            <option value="5">5+ Guests</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Price Range</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            id="servicesPriceRange"
+                                        >
+                                            <option value="">Any Price</option>
+                                            <option value="0-15000">
+                                                Under PKR 15,000
+                                            </option>
+                                            <option value="15000-25000">
+                                                PKR 15,000 - 25,000
+                                            </option>
+                                            <option value="25000-35000">
+                                                PKR 25,000 - 35,000
+                                            </option>
+                                            <option value="35000+">
+                                                Above PKR 35,000
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary w-100"
+                                            onclick="searchServicesProperties()"
+                                        >
+                                            <i class="fas fa-search me-2"></i
+                                            >Search Properties
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters and View Controls -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div
+                            class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+                        >
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button
+                                    class="btn btn-outline-primary"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#servicesFilterOffcanvas"
+                                >
+                                    <i class="fas fa-filter me-2"></i>Advanced
+                                    Filters
+                                </button>
+                                <select
+                                    class="form-select"
+                                    style="width: auto"
+                                    id="servicesSortBy"
+                                >
+                                    <option value="price_low">
+                                        Price: Low to High
+                                    </option>
+                                    <option value="price_high">
+                                        Price: High to Low
+                                    </option>
+                                    <option value="rating">Rating</option>
+                                    <option value="newest">Newest First</option>
+                                </select>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary active"
+                                    onclick="toggleServicesView('grid')"
+                                >
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    onclick="toggleServicesView('list')"
+                                >
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Properties Grid -->
+                <div class="row g-4" id="servicesPropertiesContainer">
+                    <!-- Properties will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Services Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        What We Offer
+                    </h2>
+                    <p class="lead cd">
+                        Premium services designed for your comfort
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div
+                        class="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="card border-0 shadow h-100">
+                            <div class="card-body text-center">
+                                <i
+                                    class="fas fa-building text-primary display-4 mb-3"
+                                ></i>
+                                <h5 class="fw-bold">Luxury Apartments</h5>
+                                <p>
+                                    Premium furnished apartments in prime
+                                    locations with modern amenities and
+                                    professional management.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Fully Furnished
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >24/7 Security
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Housekeeping
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Prime Locations
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="card border-0 shadow h-100">
+                            <div class="card-body text-center">
+                                <i
+                                    class="fas fa-home text-primary display-4 mb-3"
+                                ></i>
+                                <h5 class="fw-bold">Family Houses</h5>
+                                <p>
+                                    Spacious family houses perfect for long-term
+                                    stays with gardens, parking, and
+                                    family-friendly amenities.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Multiple Bedrooms
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Private Gardens
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Parking Space
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Family Friendly
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        <div class="card border-0 shadow h-100">
+                            <div class="card-body text-center">
+                                <i
+                                    class="fas fa-crown text-primary display-4 mb-3"
+                                ></i>
+                                <h5 class="fw-bold">Luxury Villas</h5>
+                                <p>
+                                    Exclusive villas with private pools, premium
+                                    amenities, and concierge services for the
+                                    ultimate luxury experience.
+                                </p>
+                                <ul class="list-unstyled text-start">
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Private Pool
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Concierge Service
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Premium Amenities
+                                    </li>
+                                    <li>
+                                        <i
+                                            class="fas fa-check text-success me-2"
+                                        ></i
+                                        >Exclusive Locations
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Services -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-4 dd similarHaed">
+                        Additional Services
+                    </h2>
+                    <p class="lead">Everything you need for a perfect stay</p>
+                </div>
+                <div class="row g-4">
+                    <div
+                        class="col-md-6 col-lg-3"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="card border-0 shadow text-center h-100">
+                            <div class="card-body">
+                                <i
+                                    class="fas fa-car text-primary display-4 mb-3"
+                                ></i>
+                                <h6 class="fw-bold">Airport Transfer</h6>
+                                <p class="mb-0">
+                                    Convenient pickup and drop-off services
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-6 col-lg-3"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="card border-0 shadow text-center h-100">
+                            <div class="card-body">
+                                <i
+                                    class="fas fa-broom text-primary display-4 mb-3"
+                                ></i>
+                                <h6 class="fw-bold">Housekeeping</h6>
+                                <p class="mb-0">
+                                    Regular cleaning and maintenance services
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-6 col-lg-3"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        <div class="card border-0 shadow text-center h-100">
+                            <div class="card-body">
+                                <i
+                                    class="fas fa-utensils text-primary display-4 mb-3"
+                                ></i>
+                                <h6 class="fw-bold">Catering</h6>
+                                <p class="mb-0">
+                                    Professional catering for events and meals
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-6 col-lg-3"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                    >
+                        <div class="card border-0 shadow text-center h-100">
+                            <div class="card-body">
+                                <i
+                                    class="fas fa-headset text-primary display-4 mb-3"
+                                ></i>
+                                <h6 class="fw-bold">24/7 Support</h6>
+                                <p class="mb-0">
+                                    Round-the-clock customer assistance
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <h5 class="fw-bold mb-3">Stayscape</h5>
+                        <p class="mb-4">
+                            Your trusted partner for premium property bookings
+                            across Pakistan. Making travel accommodation simple
+                            and accessible for everyone.
+                        </p>
+                        <div class="social-links d-flex">
+                            <a
+                                href="https://www.facebook.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a
+                                href="https://twitter.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a
+                                href="https://www.instagram.com/"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com"
+                                class="btn btn-outline-light"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h6 class="fw-bold mb-3">Quick Links</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a
+                                    href="./index.html"
+                                    class="text-light text-decoration-none"
+                                    >Home</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./about.html"
+                                    class="text-light text-decoration-none"
+                                    >About us</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html"
+                                    class="text-light text-decoration-none"
+                                    >Services</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./contact.html"
+                                    class="text-light text-decoration-none"
+                                    >Contact</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">Popular Cities</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Karachi</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Lahore</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Islamabad</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Rawalpindi</a
+                                >
+                            </li>
+                            <li class="mb-2">
+                                <a
+                                    href="./services.html#services"
+                                    class="text-light text-decoration-none"
+                                    >Faisalabad</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">Contact Info</h6>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope me-2"></i
+                            >info@stayscape.com
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-phone me-2"></i>+92 300 1234567
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i>Karachi,
+                            Pakistan
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-clock me-2"></i>24/7 Support
+                            Available
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+                <div class="text-center">
+                    <p class="mb-0">
+                        &copy; 2025 Stayscape. All rights reserved. | Privacy
+                        Policy | Terms of Service
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Services Filter Offcanvas -->
+        <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="servicesFilterOffcanvas"
+        >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Advanced Filters</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                ></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="mb-4">
+                    <label class="form-label fw-bold">City</label>
+                    <select class="form-select" id="servicesFilterCity">
+                        <option value="">All Cities</option>
+                        <option value="karachi">Karachi</option>
+                        <option value="lahore">Lahore</option>
+                        <option value="islamabad">Islamabad</option>
+                        <option value="rawalpindi">Rawalpindi</option>
+                        <option value="faisalabad">Faisalabad</option>
+                        <option value="multan">Multan</option>
+                        <option value="peshawar">Peshawar</option>
+                        <option value="quetta">Quetta</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Property Type</label>
+                    <select class="form-select" id="servicesFilterType">
+                        <option value="">All Types</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="villa">Villa</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Price Range</label>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Min"
+                                id="servicesMinPrice"
+                            />
+                        </div>
+                        <div class="col-6">
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Max"
+                                id="servicesMaxPrice"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Rating</label>
+                    <select class="form-select" id="servicesFilterRating">
+                        <option value="">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Amenities</label>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="WiFi"
+                            id="amenityWifi"
+                        />
+                        <label class="form-check-label" for="amenityWifi"
+                            >WiFi</label
+                        >
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="AC"
+                            id="amenityAC"
+                        />
+                        <label class="form-check-label" for="amenityAC"
+                            >Air Conditioning</label
+                        >
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="Pool"
+                            id="amenityPool"
+                        />
+                        <label class="form-check-label" for="amenityPool"
+                            >Swimming Pool</label
+                        >
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="Parking"
+                            id="amenityParking"
+                        />
+                        <label class="form-check-label" for="amenityParking"
+                            >Parking</label
+                        >
+                    </div>
+                </div>
+                <button
+                    class="btn btn-primary w-100"
+                    onclick="applyServicesFilters()"
+                >
+                    Apply Filters
+                </button>
+                <button
+                    class="btn btn-outline-secondary w-100 mt-2"
+                    onclick="clearServicesFilters()"
+                >
+                    Clear All
+                </button>
+            </div>
+        </div>
+
+        <!-- Property Modal -->
+        <div class="modal fade" id="servicesPropertyModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Property Details</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                        ></button>
+                    </div>
+                    <div class="modal-body" id="servicesModalContent">
+                        <!-- Property details will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="script.js"></script>
+        <script src="services.js"></script>
+        <script>
+            // Back to Top Button Logic
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+
+            backToTop?.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            const typewriterText = document.getElementById('typewriterText');
+            const words = [
+                'Property Listing',
+                'Online Booking',
+                'Rental Support',
+                'Consultation',
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                if (isDeleting) {
+                    charIndex--;
+                } else {
+                    charIndex++;
+                }
+
+                typewriterText.textContent = currentWord.substring(
+                    0,
+                    charIndex
+                );
+
+                let typeSpeed = isDeleting ? 60 : 100;
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 1500;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            document.addEventListener('DOMContentLoaded', type);
+        </script>
+    </body>
+</html>

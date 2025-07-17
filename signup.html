@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - StayPakistan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="min-vh-100 d-flex align-items-center justify-content-center bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <a href="index.html" class="d-inline-block mb-3">
+                                    <i class="fas fa-home text-primary fs-1"></i>
+                                </a>
+                                <h3 class="fw-bold">Create Account</h3>
+                                <p class="text-muted">Join StayPakistan today</p>
+                            </div>
+                            
+                            <form id="signupForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                        <div class="invalid-feedback">Please enter your first name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                        <div class="invalid-feedback">Please enter your last name.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="+92 300 1234567" required>
+                                        <div class="form-text">Format: +92 XXX XXXXXXX</div>
+                                        <div class="invalid-feedback">Please enter a valid Pakistani phone number.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="password" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')">
+                                                <i class="fas fa-eye" id="passwordToggle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="form-text">Minimum 6 characters</div>
+                                        <div class="invalid-feedback">Password must be at least 6 characters long.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Confirm Password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="confirmPassword" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPassword')">
+                                                <i class="fas fa-eye" id="confirmPasswordToggle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback">Passwords do not match.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                            </label>
+                                            <div class="invalid-feedback">You must agree to the terms and conditions.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary w-100" id="signupBtn">
+                                            <i class="fas fa-user-plus me-2"></i>Create Account
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-4">
+                                <p class="mb-0">Already have an account? <a href="login.html" class="text-decoration-none">Sign In</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2 mb-0">Creating your account...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const passwordToggle = document.getElementById(fieldId + 'Toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        }
+
+        function showLoading() {
+            const modal = new bootstrap.Modal(document.getElementById('loadingModal'));
+            modal.show();
+        }
+
+        function hideLoading() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loadingModal'));
+            if (modal) modal.hide();
+        }
+
+        function showAlert(message, type = 'danger') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            const form = document.getElementById('signupForm');
+            form.parentNode.insertBefore(alertDiv, form);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
+        function validateForm() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            
+            let isValid = true;
+            
+            // Clear previous validation states
+            document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+            
+            // Validate first name
+            if (!firstName) {
+                document.getElementById('firstName').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate last name
+            if (!lastName) {
+                document.getElementById('lastName').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById('email').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phoneRegex = /^(\+92|0092|92|0)[0-9]{10}$/;
+            if (!phone || !phoneRegex.test(phone.replace(/\s/g, ''))) {
+                document.getElementById('phone').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate password
+            if (!password || password.length < 6) {
+                document.getElementById('password').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate confirm password
+            if (!confirmPassword || password !== confirmPassword) {
+                document.getElementById('confirmPassword').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate terms
+            if (!terms) {
+                document.getElementById('terms').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                showAlert('Please correct the errors below.');
+                return;
+            }
+            
+            const formData = {
+                action: 'signup',
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                password: document.getElementById('password').value
+            };
+            
+            const signupBtn = document.getElementById('signupBtn');
+            
+            try {
+                showLoading();
+                signupBtn.disabled = true;
+                
+                const response = await fetch('auth.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                hideLoading();
+                signupBtn.disabled = false;
+                
+                if (result.success) {
+                    showAlert('Account created successfully! Please login to continue.', 'success');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                } else {
+                    showAlert(result.message || 'Registration failed. Please try again.');
+                }
+            } catch (error) {
+                hideLoading();
+                signupBtn.disabled = false;
+                console.error('Error:', error);
+                showAlert('An error occurred. Please check your connection and try again.');
+            }
+        });
+
+        // Real-time password confirmation validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+            }
+        });
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            
+            if (value.startsWith('92')) {
+                value = '+' + value;
+            } else if (value.startsWith('0')) {
+                value = '+92' + value.substring(1);
+            } else if (!value.startsWith('+92')) {
+                value = '+92' + value;
+            }
+            
+            this.value = value;
+        });
+
+        // Auto-focus on first name field
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('firstName').focus();
+        });
+    </script>
+</body>
+</html>

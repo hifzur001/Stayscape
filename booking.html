@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Booking - StayPakistan</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link href="styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
+        <!-- Header -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+        <!-- Go to Top Button -->
+        <a href="#" class="floating-btn" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <!-- Header -->
+        <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a
+                    class="navbar-brand d-flex align-items-center"
+                    href="index.html"
+                >
+                    <i class="fas fa-home text-primary me-2 fs-2"></i>
+                    <span class="fw-bold fs-3 text-primary">StayPakistan</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">
+                                <i class="fas fa-calendar-check me-2"></i
+                                >Booking Details
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="bookingForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Check-in Date</label
+                                        >
+                                        <input
+                                            type="date"
+                                            class="form-control"
+                                            id="checkinDate"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            Please select a check-in date.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Check-out Date</label
+                                        >
+                                        <input
+                                            type="date"
+                                            class="form-control"
+                                            id="checkoutDate"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            Please select a check-out date.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Number of Guests</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            id="guests"
+                                            required
+                                        >
+                                            <option value="">
+                                                Select guests
+                                            </option>
+                                            <option value="1">1 Guest</option>
+                                            <option value="2">2 Guests</option>
+                                            <option value="3">3 Guests</option>
+                                            <option value="4">4 Guests</option>
+                                            <option value="5">5 Guests</option>
+                                            <option value="6">6 Guests</option>
+                                            <option value="7">7 Guests</option>
+                                            <option value="8">8 Guests</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select number of guests.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Special Requests</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            id="specialRequests"
+                                        >
+                                            <option value="">None</option>
+                                            <option value="early_checkin">
+                                                Early Check-in
+                                            </option>
+                                            <option value="late_checkout">
+                                                Late Check-out
+                                            </option>
+                                            <option value="airport_transfer">
+                                                Airport Transfer
+                                            </option>
+                                            <option value="extra_cleaning">
+                                                Extra Cleaning
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label"
+                                            >Additional Notes</label
+                                        >
+                                        <textarea
+                                            class="form-control"
+                                            id="notes"
+                                            rows="3"
+                                            placeholder="Any special requirements or notes..."
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <hr class="my-4" />
+
+                                <h5 class="mb-3">Guest Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Full Name</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="guestName"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            Please enter guest name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Email Address</label
+                                        >
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="guestEmail"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            Please enter a valid email address.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >Phone Number</label
+                                        >
+                                        <input
+                                            type="tel"
+                                            class="form-control"
+                                            id="guestPhone"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            Please enter a valid phone number.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"
+                                            >CNIC Number</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="guestCnic"
+                                            placeholder="00000-0000000-0"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            Please enter a valid CNIC number.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label"
+                                            >Address</label
+                                        >
+                                        <textarea
+                                            class="form-control"
+                                            id="guestAddress"
+                                            rows="2"
+                                            required
+                                        ></textarea>
+                                        <div class="invalid-feedback">
+                                            Please enter your address.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="my-4" />
+
+                                <h5 class="mb-3">Payment Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label class="form-label"
+                                            >Payment Method</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            id="paymentMethod"
+                                            required
+                                        >
+                                            <option value="">
+                                                Select Payment Method
+                                            </option>
+                                            <option value="bank_transfer">
+                                                Bank Transfer
+                                            </option>
+                                            <option value="jazz_cash">
+                                                JazzCash
+                                            </option>
+                                            <option value="easypaisa">
+                                                EasyPaisa
+                                            </option>
+                                            <option value="credit_card">
+                                                Credit Card
+                                            </option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select a payment method.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="agreeTerms"
+                                                required
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="agreeTerms"
+                                            >
+                                                I agree to the
+                                                <a
+                                                    href="#"
+                                                    class="text-decoration-none"
+                                                    >Terms & Conditions</a
+                                                >
+                                                and
+                                                <a
+                                                    href="#"
+                                                    class="text-decoration-none"
+                                                    >Cancellation Policy</a
+                                                >
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                You must agree to the terms and
+                                                conditions.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary btn-lg px-5"
+                                        id="confirmBookingBtn"
+                                    >
+                                        <i class="fas fa-credit-card me-2"></i
+                                        >Confirm Booking
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Booking Summary</h5>
+                        </div>
+                        <div class="card-body" id="bookingSummary">
+                            <!-- Booking summary will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Modal -->
+        <div
+            class="modal fade"
+            id="loadingModal"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+        >
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2 mb-0">Processing your booking...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            let bookingData = null;
+            let property = null;
+
+            // Load booking data on page load
+            document.addEventListener('DOMContentLoaded', function () {
+                const data = localStorage.getItem('bookingData');
+                if (data) {
+                    bookingData = JSON.parse(data);
+                    property = bookingData.property;
+
+                    // Populate guest information from user data
+                    if (bookingData.user) {
+                        document.getElementById('guestName').value =
+                            bookingData.user.name ||
+                            bookingData.user.first_name +
+                                ' ' +
+                                bookingData.user.last_name;
+                        document.getElementById('guestEmail').value =
+                            bookingData.user.email || '';
+                        document.getElementById('guestPhone').value =
+                            bookingData.user.phone || '';
+                    }
+
+                    // Load any pre-selected dates from services page
+                    const savedDates = localStorage.getItem('bookingDates');
+                    if (savedDates) {
+                        const dates = JSON.parse(savedDates);
+                        document.getElementById('checkinDate').value =
+                            dates.checkin;
+                        document.getElementById('checkoutDate').value =
+                            dates.checkout;
+                        document.getElementById('guests').value = dates.guests;
+                        localStorage.removeItem('bookingDates');
+                    }
+
+                    // Display booking summary
+                    displayBookingSummary();
+                    setMinDates();
+                    calculateTotal();
+                } else {
+                    alert('No booking data found. Redirecting to home page.');
+                    window.location.href = 'index.html';
+                }
+            });
+
+            function setMinDates() {
+                const today = new Date().toISOString().split('T')[0];
+                const checkinInput = document.getElementById('checkinDate');
+                const checkoutInput = document.getElementById('checkoutDate');
+
+                checkinInput.min = today;
+
+                checkinInput.addEventListener('change', function () {
+                    checkoutInput.min = this.value;
+                    if (
+                        checkoutInput.value &&
+                        checkoutInput.value <= this.value
+                    ) {
+                        checkoutInput.value = '';
+                    }
+                    calculateTotal();
+                });
+
+                checkoutInput.addEventListener('change', calculateTotal);
+            }
+
+            function displayBookingSummary() {
+                const summaryDiv = document.getElementById('bookingSummary');
+                if (!property) return;
+
+                summaryDiv.innerHTML = `
+                <div class="mb-3">
+                    <img src="${
+                        property.pictures[0]
+                    }" class="img-fluid rounded mb-3" alt="${property.title}">
+                    <h6 class="fw-bold">${property.title}</h6>
+                    <p class="text-muted mb-2">
+                        <i class="fas fa-map-marker-alt me-1"></i>${
+                            property.location
+                        }
+                    </p>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-star text-warning me-1"></i>
+                        <span>${property.rating}/5</span>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Price per night:</span>
+                    <span class="fw-bold">PKR ${property.price.toLocaleString()}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Number of nights:</span>
+                    <span id="nightsCount">-</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Service fee:</span>
+                    <span>PKR 2,000</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Taxes (10%):</span>
+                    <span id="taxAmount">-</span>
+                </div>
+                
+                <hr>
+                
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Total:</span>
+                    <span class="fw-bold text-primary fs-5" id="totalAmount">-</span>
+                </div>
+                
+                <div class="mt-3">
+                    <small class="text-muted">
+                        <i class="fas fa-info-circle me-1"></i>
+                        Free cancellation up to 24 hours before check-in
+                    </small>
+                </div>
+            `;
+            }
+
+            function calculateTotal() {
+                const checkinDate =
+                    document.getElementById('checkinDate').value;
+                const checkoutDate =
+                    document.getElementById('checkoutDate').value;
+
+                if (checkinDate && checkoutDate && property) {
+                    const checkin = new Date(checkinDate);
+                    const checkout = new Date(checkoutDate);
+                    const nights = Math.ceil(
+                        (checkout - checkin) / (1000 * 60 * 60 * 24)
+                    );
+
+                    if (nights > 0) {
+                        const subtotal = property.price * nights;
+                        const serviceFee = 2000;
+                        const tax = Math.round(subtotal * 0.1); // 10% tax
+                        const total = subtotal + serviceFee + tax;
+
+                        document.getElementById('nightsCount').textContent =
+                            nights;
+                        document.getElementById('taxAmount').textContent =
+                            'PKR ' + tax.toLocaleString();
+                        document.getElementById('totalAmount').textContent =
+                            'PKR ' + total.toLocaleString();
+                    } else {
+                        document.getElementById('nightsCount').textContent =
+                            '-';
+                        document.getElementById('taxAmount').textContent = '-';
+                        document.getElementById('totalAmount').textContent =
+                            '-';
+                    }
+                }
+            }
+
+            function validateForm() {
+                const requiredFields = [
+                    'checkinDate',
+                    'checkoutDate',
+                    'guests',
+                    'guestName',
+                    'guestEmail',
+                    'guestPhone',
+                    'guestCnic',
+                    'guestAddress',
+                    'paymentMethod',
+                ];
+
+                let isValid = true;
+
+                // Clear previous validation states
+                document
+                    .querySelectorAll('.is-invalid')
+                    .forEach(el => el.classList.remove('is-invalid'));
+
+                // Validate required fields
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value.trim()) {
+                        field.classList.add('is-invalid');
+                        isValid = false;
+                    }
+                });
+
+                // Validate dates
+                const checkinDate =
+                    document.getElementById('checkinDate').value;
+                const checkoutDate =
+                    document.getElementById('checkoutDate').value;
+
+                if (checkinDate && checkoutDate) {
+                    const checkin = new Date(checkinDate);
+                    const checkout = new Date(checkoutDate);
+
+                    if (checkout <= checkin) {
+                        document
+                            .getElementById('checkoutDate')
+                            .classList.add('is-invalid');
+                        isValid = false;
+                    }
+                }
+
+                // Validate email
+                const email = document.getElementById('guestEmail').value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email && !emailRegex.test(email)) {
+                    document
+                        .getElementById('guestEmail')
+                        .classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                // Validate CNIC
+                const cnic = document.getElementById('guestCnic').value;
+                const cnicRegex = /^\d{5}-\d{7}-\d{1}$/;
+                if (cnic && !cnicRegex.test(cnic)) {
+                    document
+                        .getElementById('guestCnic')
+                        .classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                // Validate terms
+                const terms = document.getElementById('agreeTerms').checked;
+                if (!terms) {
+                    document
+                        .getElementById('agreeTerms')
+                        .classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            function showAlert(message, type = 'danger') {
+                const alertDiv = document.createElement('div');
+                alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+                alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+                const form = document.getElementById('bookingForm');
+                form.parentNode.insertBefore(alertDiv, form);
+
+                setTimeout(() => {
+                    alertDiv.remove();
+                }, 5000);
+            }
+
+            function showLoading() {
+                const modal = new bootstrap.Modal(
+                    document.getElementById('loadingModal')
+                );
+                modal.show();
+            }
+
+            function hideLoading() {
+                const modal = bootstrap.Modal.getInstance(
+                    document.getElementById('loadingModal')
+                );
+                if (modal) modal.hide();
+            }
+
+            // Handle form submission
+            document
+                .getElementById('bookingForm')
+                .addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    if (!validateForm()) {
+                        showAlert('Please correct the errors below.');
+                        return;
+                    }
+
+                    const totalAmountText =
+                        document.getElementById('totalAmount').textContent;
+                    if (!totalAmountText || totalAmountText === '-') {
+                        showAlert(
+                            'Please select valid check-in and check-out dates.'
+                        );
+                        return;
+                    }
+
+                    const formData = {
+                        action: 'book',
+                        property_id: property.id,
+                        checkin_date:
+                            document.getElementById('checkinDate').value,
+                        checkout_date:
+                            document.getElementById('checkoutDate').value,
+                        guests: document.getElementById('guests').value,
+                        special_requests:
+                            document.getElementById('specialRequests').value,
+                        notes: document.getElementById('notes').value,
+                        guest_name: document.getElementById('guestName').value,
+                        guest_email:
+                            document.getElementById('guestEmail').value,
+                        guest_phone:
+                            document.getElementById('guestPhone').value,
+                        guest_cnic: document.getElementById('guestCnic').value,
+                        guest_address:
+                            document.getElementById('guestAddress').value,
+                        payment_method:
+                            document.getElementById('paymentMethod').value,
+                        total_amount: totalAmountText
+                            .replace('PKR ', '')
+                            .replace(/,/g, ''),
+                    };
+
+                    const confirmBtn =
+                        document.getElementById('confirmBookingBtn');
+
+                    try {
+                        showLoading();
+                        confirmBtn.disabled = true;
+
+                        const response = await fetch('booking.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData),
+                        });
+
+                        const result = await response.json();
+
+                        hideLoading();
+                        confirmBtn.disabled = false;
+
+                        if (result.success) {
+                            // Store booking confirmation data
+                            localStorage.setItem(
+                                'bookingConfirmation',
+                                JSON.stringify({
+                                    booking_id: result.data.booking_id,
+                                    property: property,
+                                    booking_data: formData,
+                                    booking_result: result.data,
+                                })
+                            );
+
+                            // Also store user_id in booking data for future reference
+                            if (bookingData.user && bookingData.user.user_id) {
+                                formData.user_id = bookingData.user.user_id;
+                            }
+
+                            // Redirect to confirmation page
+                            window.location.href = 'confirmation.html';
+                        } else {
+                            showAlert(
+                                result.message ||
+                                    'Booking failed. Please try again.'
+                            );
+                        }
+                    } catch (error) {
+                        hideLoading();
+                        confirmBtn.disabled = false;
+                        console.error('Error:', error);
+                        showAlert(
+                            'An error occurred. Please check your connection and try again.'
+                        );
+                    }
+                });
+
+            // CNIC formatting
+            document
+                .getElementById('guestCnic')
+                .addEventListener('input', function () {
+                    let value = this.value.replace(/\D/g, '');
+
+                    if (value.length >= 5) {
+                        value =
+                            value.substring(0, 5) + '-' + value.substring(5);
+                    }
+                    if (value.length >= 13) {
+                        value =
+                            value.substring(0, 13) +
+                            '-' +
+                            value.substring(13, 14);
+                    }
+
+                    this.value = value;
+                });
+
+            // Phone formatting
+            document
+                .getElementById('guestPhone')
+                .addEventListener('input', function () {
+                    let value = this.value.replace(/\D/g, '');
+
+                    if (value.startsWith('92')) {
+                        value = '+' + value;
+                    } else if (value.startsWith('0')) {
+                        value = '+92' + value.substring(1);
+                    } else if (!value.startsWith('+92')) {
+                        value = '+92' + value;
+                    }
+
+                    this.value = value;
+                });
+        </script>
+    </body>
+</html>
